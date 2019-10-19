@@ -1,5 +1,6 @@
 import React from "react";
 import Home from "./views/Home"
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
   Switch,
