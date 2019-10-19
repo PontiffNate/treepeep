@@ -1,4 +1,5 @@
 import React from "react";
+import Home from "./views/Home"
 import {
   BrowserRouter as Router,
   Switch,
@@ -42,9 +43,6 @@ export default function App() {
   );
 }
 
-function Home() {
-  return <h2>Home</h2>;
-}
 
 function About() {
   return <h2>About</h2>;
