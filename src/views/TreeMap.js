@@ -6,7 +6,7 @@ export default class TreeMap extends Component {
     render() {
         return(
             <React.Fragment>
-                <div id="map">
+                <div id="map-container-google-3" class="z-depth-1-half map-container-3">
                     <MapContainer/>
                 </div>
             </React.Fragment>

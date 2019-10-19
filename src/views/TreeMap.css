@@ -1,5 +1,17 @@
 #map {
-    width: 100%;
-    height: 400px;
+    width: 50%;
+    height: 50%;
     background-color: grey;
   }
+
+#map div div {
+  margin-right: auto;
+  margin-left: auto;
+  
+}
+
+@media screen and (min-width: 500px) {
+  #map {
+    width: 100%;
+  }
+}
