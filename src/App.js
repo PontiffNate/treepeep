@@ -1,6 +1,8 @@
 import React from "react";
 import Home from "./views/Home"
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+import TreeMap from "./views/TreeMap"
 import {
   BrowserRouter as Router,
   Switch,
@@ -23,6 +25,9 @@ export default function App() {
             <li>
               <Link to="/users">Users</Link>
             </li>
+            <li>
+              <Link to="/map">Map</Link>
+            </li>
           </ul>
         </nav>
 
@@ -34,6 +39,9 @@ export default function App() {
           </Route>
           <Route path="/users">
             <Users />
+          </Route>
+          <Route path="/map">
+            <TreeMap />
           </Route>
           <Route path="/">
             <Home />
