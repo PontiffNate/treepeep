@@ -1,5 +1,7 @@
 import React from "react";
 import Home from "./views/Home"
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import TreeMap from "./views/TreeMap"
 import {
   BrowserRouter as Router,
