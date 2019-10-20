@@ -1,7 +1,7 @@
 import React, {useState, Component} from "react";
 import "./TreeMap.css";
 import { GoogleMap, Marker, InfoWindow, withGoogleMap, withScriptjs } from "react-google-maps";
-import * as parkData from "../data/testData.json";
+import * as testData from "../data/testData.json";
 
 // import Map from "./GoogleAPIWrapper";
 const MapWrapped = withScriptjs(withGoogleMap(Map));
@@ -24,35 +24,35 @@ export default class TreeMap extends Component {
 }
 
 function Map() {
-    const [selectedPark, setSelectedPark] = useState(null);
+    const [selectedTree, setSelectedTree] = useState(null);
     return (
         <GoogleMap
           defaultZoom={10}
           defaultCenter={{ lat: 45.4211, lng: -75.6903 }}
         >
-          {parkData.features.map(park => (
+          {testData.trees.map(treeMap => (
             <Marker
-              key={park.properties.PARK_ID}
+              key={treeMap.treeData.TREE_ID}
               position={{
-                lat: park.geometry.coordinates[1],
-                lng: park.geometry.coordinates[0]
+                lat: treeMap.treeData.coordinates[1],
+                lng: treeMap.treeData.coordinates[0]
               }}
-              onClick={() => { setSelectedPark(park); }}
+              onClick={() => { setSelectedTree(treeMap); }}
               
             />
           ))}
     
-          {selectedPark && (
+          {selectedTree && (
             <InfoWindow
-              onCloseClick={() => { setSelectedPark(null); }}
+              onCloseClick={() => { setSelectedTree(null); }}
               position={{
-                lat: selectedPark.geometry.coordinates[1],
-                lng: selectedPark.geometry.coordinates[0]
+                lat: selectedTree.treeData.coordinates[1],
+                lng: selectedTree.treeData.coordinates[0]
               }}
             >
               <div>
-                <h2>{selectedPark.properties.NAME}</h2>
-                <p>{selectedPark.properties.DESCRIPTION}</p>
+                <h2>{selectedTree.treeData.NAME}</h2>
+                <p>{selectedTree.treeData.IMAGE_URL}</p>
               </div>
             </InfoWindow>
           )}
