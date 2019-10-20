@@ -1,0 +1,10 @@
+{
+    "trees": [{
+      "treeData": {
+        "TREE_ID": 960,
+        "NAME": "tree1",
+        "IMAGE_URL": "https://i.stack.imgur.com/jZhAM.png",
+        "coordinates": [-75.3372987731628, 45.383321536272049] 
+      }
+    }]
+  }
