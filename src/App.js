@@ -10,6 +10,24 @@ import {
 
 export default function App() {
   return (
+    <React.Fragment>
+    <nav>
+      <div className="navbar navbar-dark bg-primary">
+        <div className="col-9">
+          <a className="navbar-brand">
+            <img src="../public/image/Capture.gif"></img>
+          </a>
+          <a class="navbar-brand">Treepeep</a>
+        </div>
+        <div className="col-md-auto">
+          <div className="btn-group btn-group-lg" role="group">
+            <button class="btn btn-sm btn-outline-success" type="button">Sign Up</button>
+            <button class="btn btn-sm btn-outline-success" type="button">Log In</button>
+        </div>
+        </div>
+        </div>
+
+    </nav>
     <Router>
       <div>
         <nav>
@@ -41,6 +59,7 @@ export default function App() {
         </Switch>
       </div>
     </Router>
+    </React.Fragment>
   );
 }
 
