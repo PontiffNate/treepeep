@@ -1,5 +1,6 @@
 import React from "react";
 import Home from "./views/Home"
+import About from "./views/About"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
@@ -42,11 +43,6 @@ export default function App() {
       </div>
     </Router>
   );
-}
-
-
-function About() {
-  return <h2>About</h2>;
 }
 
 function Users() {
