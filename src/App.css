@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -19,4 +19,17 @@
 
 .App-link {
   color: #09d3ac;
+} */
+
+#nav {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    outline-style: solid;
+    font-size: calc(6px + 2vmin);
+    padding: 10px;
+}
+
+#navCol {
+    padding-top: 10%
 }
