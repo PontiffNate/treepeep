@@ -1,5 +1,6 @@
 import React from "react";
-import Home from "./views/Home"
+import Home from "./views/Home";
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import TreeMap from "./views/TreeMap"
@@ -9,6 +10,17 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import {
+    Button,
+    ButtonToolbar,
+    Navbar,
+    Nav,
+    NavDropdown,
+    Form,
+    FormControl,
+    Row,
+    Col
+ } from 'react-bootstrap';
 
 export default function App() {
   return (
@@ -30,43 +42,39 @@ export default function App() {
         </div>
 
     </nav>
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-            <li>
-              <Link to="/map">Map</Link>
-            </li>
-          </ul>
-        </nav>
+    <Row>
+        <Router>
+            <Col md="auto" id = "navCol">
+                <Nav id = "nav" defaultActiveKey="/" className="flex-column">
+                  <Nav.Link href="/">Home</Nav.Link>
+                  <Nav.Link href="/map">Map</Nav.Link>
+                  <Nav.Link href="/about">About</Nav.Link>
+                  <Nav.Link href="/users">
+                    Users
+                  </Nav.Link>
+                </Nav>
+            </Col>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/map">
-            <TreeMap />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+            {/* A <Switch> looks through its children <Route>s and
+                renders the first one that matches the current URL. */}
+            <Col md="auto">
+                <Switch>
+                  <Route path="/about">
+                    <About />
+                  </Route>
+                  <Route path="/users">
+                    <Users />
+                  </Route>
+                  <Route path="/map">
+                    <TreeMap />
+                  </Route>
+                  <Route path="/">
+                    <Home />
+                  </Route>
+                </Switch>
+            </Col>
+        </Router>
+    </Row>
     </React.Fragment>
   );
 }
