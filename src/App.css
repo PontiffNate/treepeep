@@ -20,26 +20,37 @@
 .App-link {
   color: #09d3ac;
 } */
+#navBar {
+    width: 100%;
+    /* height: 80px; */
+    /* position: -webkit-sticky;
+    position: sticky;
+    top: 0; */
+}
 
 #nav {
     justify-content: center;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     outline-style: solid;
     font-size: calc(6px + 2vmin);
-    padding: 10px;
-
+    padding: 2%;
+    /* height: 30%; */
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 
 #navCol {
-    padding-top: 10%;
+    padding-top: 20px;
     padding-left: 2%;
+    padding: 2%;
 }
 
 #displayCol {
     padding: 5px;
     width: 75%;
-    height: 75%;
+    height: 100%;
     justify-content: center;
     align-items: center;
     display: flex;

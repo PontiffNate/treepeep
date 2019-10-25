@@ -25,26 +25,28 @@ import {
 export default function App() {
   return (
     <React.Fragment>
-    <nav>
-      <div className="navbar navbar-dark bg-primary">
-        <div className="col-9">
-          <a className="navbar-brand">
-            <img src="../public/image/Capture.gif"></img>
-          </a>
-          <a class="navbar-brand">Treepeep</a>
+      <Navbar bg="dark" fixed="top" variant="dark" id = "navBar">
+          <div className="col-9">
+            <Navbar.Brand href="/">
+              <img
+                alt=""
+                src="../data/Capture.gif"
+                className="d-inline-block align-top"
+              />{' '}
+              Treepeep
+            </Navbar.Brand>
         </div>
         <div className="col-md-auto">
           <div className="btn-group btn-group-lg" role="group">
-            <button class="btn btn-sm btn-outline-success" type="button">Sign Up</button>
-            <button class="btn btn-sm btn-outline-success" type="button">Log In</button>
+            <button class="btn btn-sm btn-outline-warning" type="button">Sign Up</button>
+            <button class="btn btn-sm btn-outline-warning" type="button">Log In</button>
+          </div>
         </div>
-        </div>
-        </div>
-
-    </nav>
+  </Navbar>
     <Router>
+        <h1>1</h1>
         <Row>
-            <Col md="auto" id = "navCol">
+            <Col md="1" id = "navCol">
                 <Nav id = "nav" defaultActiveKey="/" className="flex-column">
                   <Nav.Link href="/">Home</Nav.Link>
                   <Nav.Link href="/map">Map</Nav.Link>
