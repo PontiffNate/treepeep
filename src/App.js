@@ -42,22 +42,20 @@ export default function App() {
         </div>
 
     </nav>
-    <Row>
-        <Router>
+    <Router>
+        <Row>
             <Col md="auto" id = "navCol">
                 <Nav id = "nav" defaultActiveKey="/" className="flex-column">
                   <Nav.Link href="/">Home</Nav.Link>
                   <Nav.Link href="/map">Map</Nav.Link>
                   <Nav.Link href="/about">About</Nav.Link>
-                  <Nav.Link href="/users">
-                    Users
-                  </Nav.Link>
+                  <Nav.Link href="/users">Users</Nav.Link>
                 </Nav>
             </Col>
 
             {/* A <Switch> looks through its children <Route>s and
                 renders the first one that matches the current URL. */}
-            <Col md="auto">
+            <Col md="auto" id ="displayCol">
                 <Switch>
                   <Route path="/about">
                     <About />
@@ -73,8 +71,9 @@ export default function App() {
                   </Route>
                 </Switch>
             </Col>
-        </Router>
-    </Row>
+        </Row>
+    </Router>
+
     </React.Fragment>
   );
 }

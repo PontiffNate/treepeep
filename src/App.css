@@ -28,8 +28,19 @@
     outline-style: solid;
     font-size: calc(6px + 2vmin);
     padding: 10px;
+
 }
 
 #navCol {
-    padding-top: 10%
+    padding-top: 10%;
+    padding-left: 2%;
+}
+
+#displayCol {
+    padding: 5px;
+    width: 75%;
+    height: 75%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
