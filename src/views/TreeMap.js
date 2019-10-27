@@ -52,7 +52,7 @@ function Map() {
             >
               <div>
                 <h2>{selectedTree.treeData.NAME}</h2>
-                <p>{selectedTree.treeData.IMAGE_URL}</p>
+                <img src={""+ selectedTree.treeData.IMAGE_URL}/>
               </div>
             </InfoWindow>
           )}
