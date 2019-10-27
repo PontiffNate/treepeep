@@ -41,6 +41,19 @@
     position: fixed;
 }
 
+#filter {
+    justify-content: center;
+    flex-direction: column;
+    /* align-items: center; */
+    outline-style: solid;
+    font-size: calc(6px + 2vmin);
+    padding: 2%;
+    margin-top: 300px;
+    position: -webkit-sticky;
+    position: sticky;
+    position: fixed;
+}
+
 #navCol {
     padding-top: 20px;
     padding-left: 2%;
