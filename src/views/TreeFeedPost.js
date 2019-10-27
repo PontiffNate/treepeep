@@ -25,7 +25,7 @@ export default class TreeFeedPosts extends React.Component {
                 <ListGroupItem>Likes: {this.props.post.LIKES}</ListGroupItem>
                 </ListGroup>
                 <Card.Body>
-                <Card.Link href={"/post?id=" + this.props.post.TREE_ID}>View Full Post</Card.Link>
+                <Card.Link href={"/post?id=" + this.props.post.ID}>View Full Post</Card.Link>
                 </Card.Body>
             </Card>
         );
