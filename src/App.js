@@ -3,7 +3,8 @@ import Home from "./views/Home";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import TreeMap from "./views/TreeMap"
+import TreeMap from "./views/TreeMap";
+import Post from "./views/Post";
 import {
   BrowserRouter as Router,
   Switch,
@@ -87,7 +88,26 @@ export default class App extends Component {
               <Button variant="danger" onClick={this.handleSignIn}>Close</Button>
               <Button variant="success" onClick={this.handleSignIn}>Sign Up</Button>
             </Modal.Footer>
-          </Modal>
+        </Modal>
+        <Modal size="lg" aria-labelled show={this.state.showSignInOverlay} by="contained-modal-title-vcenter" centered>
+            <Modal.Header closeButton>
+              <Modal.Title id="contained-modal-title-vcenter">
+                Sign Up to Treepeep
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <h4>Centered Modal</h4>
+              <p>
+                Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+                dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+                consectetur ac, vestibulum at eros.
+              </p>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="danger" onClick={this.handleSignIn}>Close</Button>
+              <Button variant="success" onClick={this.handleSignIn}>Sign Up</Button>
+            </Modal.Footer>
+        </Modal>
 
           <Router>
               <h1>1</h1>
@@ -98,6 +118,7 @@ export default class App extends Component {
                         <Nav.Link href="/map">Map</Nav.Link>
                         <Nav.Link href="/about">About</Nav.Link>
                         <Nav.Link href="/users">Users</Nav.Link>
+                        <Nav.Link href="/new-post">Post</Nav.Link>
                       </Nav>
                   </Col>
 
@@ -110,6 +131,9 @@ export default class App extends Component {
                         </Route>
                         <Route path="/users">
                           <Users />
+                        </Route>
+                        <Route path="/new-post">
+                          <Post />
                         </Route>
                         <Route path="/map">
                           <TreeMap />
