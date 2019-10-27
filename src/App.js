@@ -3,6 +3,7 @@ import Home from "./views/Home";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import Logo from './data/Logo.PNG'
 import TreeMap from "./views/TreeMap"
 import {
   BrowserRouter as Router,
@@ -25,15 +26,15 @@ import {
 export default function App() {
   return (
     <React.Fragment>
-      <Navbar bg="dark" fixed="top" variant="dark" id = "navBar">
+      <Navbar fixed="top" variant="dark" id = "navBar">
           <div className="col-9">
             <Navbar.Brand href="/">
               <img
                 alt=""
-                src="../data/Capture.gif"
+                src={Logo}
+                style={{width: 165, height: 66}}
                 className="d-inline-block align-top"
-              />{' '}
-              Treepeep
+              />
             </Navbar.Brand>
         </div>
         <div className="col-md-auto">
@@ -44,7 +45,7 @@ export default function App() {
         </div>
   </Navbar>
     <Router>
-        <h1>1</h1>
+      <font size="7">text</font>
         <Row>
             <Col md="1" id = "navCol">
                 <Nav id = "nav" defaultActiveKey="/" className="flex-column">
