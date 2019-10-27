@@ -1,5 +1,6 @@
 import React from "react";
 import Home from "./views/Home";
+import TreePost from "./views/TreePost"
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -72,6 +73,9 @@ export default function App() {
                   </Route>
                   <Route path="/new-post">
                     <Post />
+                  </Route>
+                  <Route path="/post">
+                    <TreePost />
                   </Route>
                   <Route path="/">
                     <Home />

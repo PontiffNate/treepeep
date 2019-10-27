@@ -32,5 +32,11 @@
         "ID": 2,
         "NAME": "The Lorax"
       }
-  ]
+  ],
+    "comments": [
+      {
+        "ID": 1,
+        "COMMENT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      }
+    ]
   }
