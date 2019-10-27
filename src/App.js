@@ -30,11 +30,13 @@ export default class App extends Component {
     constructor(props) {
         super(props)
       this.state = {
-          showSignInOverlay: false
+          showSignUpOverlay: false,
+          showSignInOverlay: false,
       };
 
       // Allows these fuctions access to this (so they can access this.state)
       this.handleSignIn = this.handleSignIn.bind(this);
+      this.handleSignUp = this.handleSignUp.bind(this);
     }
     // componentDidMount(){
     //     fetch('http://localhost:9000/stock')
@@ -45,6 +47,11 @@ export default class App extends Component {
     //     });
     // }
     // Handles all other form changes
+    handleSignUp(event) {
+        this.setState({
+            showSignUpOverlay: !this.state.showSignUpOverlay
+        })
+    }
     handleSignIn(event) {
         this.setState({
             showSignInOverlay: !this.state.showSignInOverlay
@@ -66,13 +73,13 @@ export default class App extends Component {
               </div>
               <div className="col-md-auto">
                 <div className="btn-group btn-group-lg" role="group">
-                  <Button variant="primary" onClick={this.handleSignIn}>Sign Up</Button>
-                  <button class="btn btn-sm btn-outline-warning" type="button">Log In</button>
+                  <Button variant="primary" onClick={this.handleSignUp}>Sign Up</Button>
+                  <Button variant="primary" onClick={this.handleSignIn}>Log In</Button>
                 </div>
               </div>
         </Navbar>
 
-        <Modal size="lg" aria-labelled show={this.state.showSignInOverlay} by="contained-modal-title-vcenter" centered>
+        <Modal size="lg" aria-labelled show={this.state.showSignUpOverlay} by="contained-modal-title-vcenter" centered>
             <Modal.Header>
               <Modal.Title id="contained-modal-title-vcenter">
                 Sign Up to Treepeep
@@ -83,29 +90,35 @@ export default class App extends Component {
                 <Form.Label>Username</Form.Label>
                 <Form.Control id="usernameme" required="True" placeholder="CoolTreeGuy12"/>
                 <Form.Label>Password</Form.Label>
-                <Form.Control id="password" required="True" placeholder="******" onChange={this.handleChange} />
+                <Form.Control id="password" required="True" placeholder="******"/>
                 <Form.Label>Confirm Password</Form.Label>
-                <Form.Control id="passwordConf" required="True" placeholder="******" onChange={this.handleChange} />
+                <Form.Control id="passwordConf" required="True" placeholder="******"/>
+                <Form.Label>Email</Form.Label>
+                <Form.Control id="email" required="True" placeholder="temp@email.com"/>
+                <Form.Label>Name</Form.Label>
+                <Form.Control id="name" required="True" placeholder="John"/>
+                <Form.Label>Age</Form.Label>
+                <Form.Control id="age" required="True" placeholder="18"/>
+                <Form.Label>State</Form.Label>
+                <Form.Control id="state" required="True" placeholder="NY"/>
               </Form>
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="danger" onClick={this.handleSignIn}>Close</Button>
-              <Button variant="success" onClick={this.handleSignIn}>Sign Up</Button>
+              <Button variant="danger" onClick={this.handleSignUp}>Close</Button>
+              <Button variant="success" onClick={this.handleSignUp}>Sign Up</Button>
             </Modal.Footer>
         </Modal>
-        <Modal size="lg" aria-labelled show={false} by="contained-modal-title-vcenter" centered>
-            <Modal.Header closeButton>
+        <Modal size="lg" aria-labelled show={this.state.showSignInOverlay} by="contained-modal-title-vcenter" centered>
+            <Modal.Header>
               <Modal.Title id="contained-modal-title-vcenter">
-                Sign Up to Treepeep
+                Sign In to Treepeep
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <h4>Centered Modal</h4>
-              <p>
-                Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                consectetur ac, vestibulum at eros.
-              </p>
+                <Form.Label>Username</Form.Label>
+                <Form.Control id="usernameme" required="True" placeholder="CoolTreeGuy12"/>
+                <Form.Label>Password</Form.Label>
+                <Form.Control id="password" required="True" placeholder="******"/>
             </Modal.Body>
             <Modal.Footer>
               <Button variant="danger" onClick={this.handleSignIn}>Close</Button>
@@ -117,11 +130,17 @@ export default class App extends Component {
               <h1>1</h1>
               <Row>
                   <Col md="1" id = "navCol">
+                      <Nav id = "filter" defaultActiveKey="/" className="flex-column">
+                      <Form.Group controlId="formBasicCheckbox">
+                         <Form.Check type="checkbox" label="Filter1" />
+                         <Form.Check type="checkbox" label="Filter2" />
+                         <Form.Check type="checkbox" label="Filter3" />
+                      </Form.Group>
+                      </Nav>
                       <Nav id = "nav" defaultActiveKey="/" className="flex-column">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/map">Map</Nav.Link>
                         <Nav.Link href="/about">About</Nav.Link>
-                        <Nav.Link href="/users">Users</Nav.Link>
                         <Nav.Link href="/new-post">Post</Nav.Link>
                       </Nav>
                   </Col>
@@ -132,9 +151,6 @@ export default class App extends Component {
                       <Switch>
                         <Route path="/about">
                           <About />
-                        </Route>
-                        <Route path="/users">
-                          <Users />
                         </Route>
                         <Route path="/new-post">
                           <Post />
