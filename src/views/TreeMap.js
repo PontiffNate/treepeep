@@ -33,10 +33,10 @@ function Map() {
         >
           {testData.trees.map(treeMap => (
             <Marker
-              key={treeMap.treeData.TREE_ID}
+              key={treeMap.TREE_ID}
               position={{
-                lat: treeMap.treeData.coordinates[1],
-                lng: treeMap.treeData.coordinates[0]
+                lat: treeMap.coordinates[1],
+                lng: treeMap.coordinates[0]
               }}
               onClick={() => { setSelectedTree(treeMap); }}
               
@@ -47,13 +47,13 @@ function Map() {
             <InfoWindow
               onCloseClick={() => { setSelectedTree(null); }}
               position={{
-                lat: selectedTree.treeData.coordinates[1],
-                lng: selectedTree.treeData.coordinates[0]
+                lat: selectedTree.coordinates[1],
+                lng: selectedTree.coordinates[0]
               }}
             >
               <div>
-                <h2>{selectedTree.treeData.NAME}</h2>
-                <img src={""+ selectedTree.treeData.IMAGE_URL}/>
+                <h2>{selectedTree.NAME}</h2>
+                <img src={""+ selectedTree.IMAGE_URL}/>
               </div>
             </InfoWindow>
           )}
