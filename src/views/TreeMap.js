@@ -11,6 +11,7 @@ export default class TreeMap extends Component {
         return(
             <React.Fragment>
                 <div style={{ width: "100vw", height: "100vh" }}>
+                <h1 id="tree-map-title">Tree Map</h1>
                   <MapWrapped
                     googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyAA_pdK9MBIEJnMoZ_8RFArBRL_okctPrg`}
                     loadingElement={<div style={{ height: `100%` }} />}
