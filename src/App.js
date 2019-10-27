@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import TreeMap from "./views/TreeMap";
 import Post from "./views/Post";
+import TreePost from "./views/TreePost";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -71,25 +73,27 @@ export default class App extends Component {
         </Navbar>
 
         <Modal size="lg" aria-labelled show={this.state.showSignInOverlay} by="contained-modal-title-vcenter" centered>
-            <Modal.Header closeButton>
+            <Modal.Header>
               <Modal.Title id="contained-modal-title-vcenter">
                 Sign Up to Treepeep
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <h4>Centered Modal</h4>
-              <p>
-                Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                consectetur ac, vestibulum at eros.
-              </p>
+              <Form>
+                <Form.Label>Username</Form.Label>
+                <Form.Control id="usernameme" required="True" placeholder="CoolTreeGuy12"/>
+                <Form.Label>Password</Form.Label>
+                <Form.Control id="password" required="True" placeholder="******" onChange={this.handleChange} />
+                <Form.Label>Confirm Password</Form.Label>
+                <Form.Control id="passwordConf" required="True" placeholder="******" onChange={this.handleChange} />
+              </Form>
             </Modal.Body>
             <Modal.Footer>
               <Button variant="danger" onClick={this.handleSignIn}>Close</Button>
               <Button variant="success" onClick={this.handleSignIn}>Sign Up</Button>
             </Modal.Footer>
         </Modal>
-        <Modal size="lg" aria-labelled show={this.state.showSignInOverlay} by="contained-modal-title-vcenter" centered>
+        <Modal size="lg" aria-labelled show={false} by="contained-modal-title-vcenter" centered>
             <Modal.Header closeButton>
               <Modal.Title id="contained-modal-title-vcenter">
                 Sign Up to Treepeep
@@ -134,6 +138,9 @@ export default class App extends Component {
                         </Route>
                         <Route path="/new-post">
                           <Post />
+                        </Route>
+                        <Route path="/post">
+                          <TreePost />
                         </Route>
                         <Route path="/map">
                           <TreeMap />
