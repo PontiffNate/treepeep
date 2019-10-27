@@ -88,13 +88,13 @@ export default class App extends Component {
             <Modal.Body>
               <Form>
                 <Form.Label>Username</Form.Label>
-                <Form.Control id="usernameme" required="True" placeholder="CoolTreeGuy12"/>
+                <Form.Control id="username" required="True" placeholder="CoolTreeGuy12"/>
                 <Form.Label>Password</Form.Label>
-                <Form.Control id="password" required="True" placeholder="******"/>
+                <Form.Control type="password" id="password" required="True" placeholder="******"/>
                 <Form.Label>Confirm Password</Form.Label>
-                <Form.Control id="passwordConf" required="True" placeholder="******"/>
+                <Form.Control type="password" id="passwordConf" required="True" placeholder="******"/>
                 <Form.Label>Email</Form.Label>
-                <Form.Control id="email" required="True" placeholder="temp@email.com"/>
+                <Form.Control type="email" id="email" required="True" placeholder="temp@email.com"/>
                 <Form.Label>Name</Form.Label>
                 <Form.Control id="name" required="True" placeholder="John"/>
                 <Form.Label>Age</Form.Label>
