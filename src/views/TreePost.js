@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "./TreePost.css"
 import {
     Card,
     ListGroup,
@@ -7,6 +8,7 @@ import {
 // import "./TreePost.css"
 import * as testData from "../data/testData.json";
 import tree0 from '../data/tree0.jpg';
+import CommentForm from "./CommentForm";
 
 export default class TreePost extends Component {
     post = getTreePost();
@@ -25,8 +27,10 @@ export default class TreePost extends Component {
                     </Card.Text>
                     </Card.Body>
                     <ListGroup className="list-group-flush">
-                    <ListGroupItem>Author: {getAuthorName(this.post.AUTHOR_ID)}</ListGroupItem>
-                    <ListGroupItem>Likes: {this.post.LIKES}</ListGroupItem>
+                        <ListGroupItem>Author: {getAuthorName(this.post.AUTHOR_ID)}</ListGroupItem>
+                        <ListGroupItem>Likes: {this.post.LIKES}</ListGroupItem>
+                        <ListGroupItem>Species: {this.post.SPECIES}</ListGroupItem>
+                        <ListGroupItem>Height: {this.post.HEIGHT}</ListGroupItem>
                     </ListGroup>
                     <Card.Body>
                     </Card.Body>
@@ -35,12 +39,13 @@ export default class TreePost extends Component {
                 <Card id="comments-section" style={{ width: '40rem' }}>
                     {/* <Card.Img variant="top" src={"" + this.props.post.IMAGE_URL} /> */}
                     <Card.Body>
-                    <Card.Title>Comments:</Card.Title>
+                        <Card.Title>Comments:</Card.Title>
                     </Card.Body>
                     <ListGroup className="list-group-flush">
-                    <ListGroupItem>Cool tree!</ListGroupItem>
-                    <ListGroupItem>Love the colors!</ListGroupItem>
-                    <ListGroupItem>Hey I live near there!</ListGroupItem>
+                        <ListGroupItem><CommentForm/></ListGroupItem>
+                        <ListGroupItem>Cool tree!</ListGroupItem>
+                        <ListGroupItem>Love the colors!</ListGroupItem>
+                        <ListGroupItem>Hey I live near there!</ListGroupItem>
                     </ListGroup>
                     <Card.Body>
                     </Card.Body>
