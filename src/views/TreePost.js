@@ -16,21 +16,35 @@ export default class TreePost extends Component {
                 <h1>{this.post.NAME}</h1>
 
                 <Card style={{ width: '40rem' }}>
-                {/* <Card.Img variant="top" src={"" + this.props.post.IMAGE_URL} /> */}
-                <Card.Img variant="top" src={tree0} />
-                <Card.Body>
-                <Card.Title>{this.post.NAME}</Card.Title>
-                <Card.Text>
-                    {this.post.DESCRIPTION}
-                </Card.Text>
-                </Card.Body>
-                <ListGroup className="list-group-flush">
-                <ListGroupItem>Author: {getAuthorName(this.post.AUTHOR_ID)}</ListGroupItem>
-                <ListGroupItem>Likes: {this.post.LIKES}</ListGroupItem>
-                </ListGroup>
-                <Card.Body>
-                </Card.Body>
-            </Card>
+                    {/* <Card.Img variant="top" src={"" + this.props.post.IMAGE_URL} /> */}
+                    <Card.Img variant="top" src={tree0} />
+                    <Card.Body>
+                    <Card.Title>{this.post.NAME}</Card.Title>
+                    <Card.Text>
+                        {this.post.DESCRIPTION}
+                    </Card.Text>
+                    </Card.Body>
+                    <ListGroup className="list-group-flush">
+                    <ListGroupItem>Author: {getAuthorName(this.post.AUTHOR_ID)}</ListGroupItem>
+                    <ListGroupItem>Likes: {this.post.LIKES}</ListGroupItem>
+                    </ListGroup>
+                    <Card.Body>
+                    </Card.Body>
+                </Card>
+
+                <Card id="comments-section" style={{ width: '40rem' }}>
+                    {/* <Card.Img variant="top" src={"" + this.props.post.IMAGE_URL} /> */}
+                    <Card.Body>
+                    <Card.Title>Comments:</Card.Title>
+                    </Card.Body>
+                    <ListGroup className="list-group-flush">
+                    <ListGroupItem>Cool tree!</ListGroupItem>
+                    <ListGroupItem>Love the colors!</ListGroupItem>
+                    <ListGroupItem>Hey I live near there!</ListGroupItem>
+                    </ListGroup>
+                    <Card.Body>
+                    </Card.Body>
+                </Card>
             </div>
         );
     }
