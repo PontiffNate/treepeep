@@ -4,6 +4,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import TreeMap from "./views/TreeMap"
+import Post from "./views/Post"
 import {
   BrowserRouter as Router,
   Switch,
@@ -52,6 +53,7 @@ export default function App() {
                   <Nav.Link href="/map">Map</Nav.Link>
                   <Nav.Link href="/about">About</Nav.Link>
                   <Nav.Link href="/users">Users</Nav.Link>
+                  <Nav.Link href="/new-post">Post</Nav.Link>
                 </Nav>
             </Col>
 
@@ -67,6 +69,9 @@ export default function App() {
                   </Route>
                   <Route path="/map">
                     <TreeMap />
+                  </Route>
+                  <Route path="/new-post">
+                    <Post />
                   </Route>
                   <Route path="/">
                     <Home />
