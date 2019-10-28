@@ -1,0 +1,12 @@
+#comments-section {
+    margin-top: 30px;
+}
+
+#comment-form {
+    width: 100%;
+    height: 75px;
+}
+
+.leave-comm {
+    font-style: italic;
+}
