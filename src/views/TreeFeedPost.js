@@ -11,6 +11,7 @@ import tree0 from '../data/tree0.jpg';
 import * as testData from "../data/testData.json";
 import likeIcon from "../data/open-iconic-master/svg/heart.svg";
 import commentIcon from "../data/open-iconic-master/svg/comment-square.svg";
+import mapIcon from "../data/open-iconic-master/svg/map-marker.svg"
 
 export default class TreeFeedPosts extends React.Component {
     render() {
@@ -21,6 +22,7 @@ export default class TreeFeedPosts extends React.Component {
                 <Card.ImgOverlay id ="cardOverlay" >
                     <Image src={likeIcon} className="iconic" id = "likeIcon" fluid />
                     <Image src={commentIcon} className="iconic" id = "commIcon" fluid />
+                    <a href="/map"><Image src={mapIcon} className="iconic" id="mapIcon" fluid /></a>
                 </Card.ImgOverlay>
                 <Card.Body>
                 <Card.Title>{this.props.post.NAME}</Card.Title>
@@ -31,10 +33,8 @@ export default class TreeFeedPosts extends React.Component {
                 <ListGroup className="list-group-flush">
                 <ListGroupItem>Author: {getAuthorName(this.props.post.AUTHOR_ID)}</ListGroupItem>
                 <ListGroupItem>Likes: {this.props.post.LIKES}</ListGroupItem>
+                <ListGroupItem><a href={"/post?id=" + this.props.post.ID}>View Full Post</a></ListGroupItem>
                 </ListGroup>
-                <Card.Body>
-                <Card.Link href={"/post?id=" + this.props.post.ID}>View Full Post</Card.Link>
-                </Card.Body>
             </Card>
         );
     }

@@ -8,6 +8,7 @@ import TreeMap from "./views/TreeMap";
 import Post from "./views/Post";
 import TreePost from "./views/TreePost";
 import About from "./views/About";
+import Logo from './data/Logo.png'
 
 import {
   BrowserRouter as Router,
@@ -67,10 +68,10 @@ export default class App extends Component {
                   <Navbar.Brand href="/">
                     <img
                       alt=""
-                      src="../data/Capture.gif"
+                      src={Logo}
+                      style={{width: 165, height: 66}}
                       className="d-inline-block align-top"
                     />{' '}
-                    Treepeep
                   </Navbar.Brand>
               </div>
               <div className="col-md-auto">
