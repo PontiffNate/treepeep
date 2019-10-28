@@ -76,8 +76,8 @@ export default class App extends Component {
               </div>
               <div className="col-md-auto">
                 <div className="btn-group btn-group-lg" role="group">
-                  <Button variant="primary" onClick={this.handleSignUp}>Sign Up</Button>
-                  <Button variant="primary" onClick={this.handleSignIn}>Log In</Button>
+                  <Button variant="outline-warning" onClick={this.handleSignUp}>Sign Up</Button>
+                  <Button variant="outline-warning" onClick={this.handleSignIn}>Log In</Button>
                 </div>
               </div>
         </Navbar>
