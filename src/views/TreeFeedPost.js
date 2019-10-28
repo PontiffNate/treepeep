@@ -2,11 +2,15 @@ import React from "react";
 import {
     Card,
     ListGroup,
-    ListGroupItem
+    ListGroupItem,
+    Button,
+    Image
  } from 'react-bootstrap';
 import "./Home.css"
 import tree0 from '../data/tree0.jpg';
 import * as testData from "../data/testData.json";
+import likeIcon from "../data/open-iconic-master/svg/heart.svg";
+import commentIcon from "../data/open-iconic-master/svg/comment-square.svg";
 
 export default class TreeFeedPosts extends React.Component {
     render() {
@@ -14,6 +18,10 @@ export default class TreeFeedPosts extends React.Component {
             <Card style={{ width: '40rem' }}>
                 {/* <Card.Img variant="top" src={"" + this.props.post.IMAGE_URL} /> */}
                 <Card.Img variant="top" src={tree0} />
+                <Card.ImgOverlay id ="cardOverlay" >
+                    <Image src={likeIcon} className="iconic" id = "likeIcon" fluid />
+                    <Image src={commentIcon} className="iconic" id = "commIcon" fluid />
+                </Card.ImgOverlay>
                 <Card.Body>
                 <Card.Title>{this.props.post.NAME}</Card.Title>
                 <Card.Text>

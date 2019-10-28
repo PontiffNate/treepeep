@@ -118,7 +118,7 @@ export default class App extends Component {
                 <Form.Label>Username</Form.Label>
                 <Form.Control id="usernameme" required="True" placeholder="CoolTreeGuy12"/>
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password"id="password" required="True" placeholder="******"/>
+                <Form.Control type="password" id="password" required="True" placeholder="******"/>
             </Modal.Body>
             <Modal.Footer>
               <Button variant="danger" onClick={this.handleSignIn}>Close</Button>
