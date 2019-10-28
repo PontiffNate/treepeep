@@ -1,3 +1,4 @@
+
 import React, {Component} from "react";
 import Home from "./views/Home";
 import './App.css';
@@ -6,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import TreeMap from "./views/TreeMap";
 import Post from "./views/Post";
 import TreePost from "./views/TreePost";
+import About from "./views/About";
 
 import {
   BrowserRouter as Router,
@@ -118,7 +120,7 @@ export default class App extends Component {
                 <Form.Label>Username</Form.Label>
                 <Form.Control id="usernameme" required="True" placeholder="CoolTreeGuy12"/>
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password"id="password" required="True" placeholder="******"/>
+                <Form.Control type="password" id="password" required="True" placeholder="******"/>
             </Modal.Body>
             <Modal.Footer>
               <Button variant="danger" onClick={this.handleSignIn}>Close</Button>
@@ -172,11 +174,6 @@ export default class App extends Component {
           </React.Fragment>
         );
     }
-}
-
-
-function About() {
-  return <h2>About</h2>;
 }
 
 function Users() {
