@@ -27,3 +27,10 @@ h1 {
     height: 28px;
     width: 28px;
 }
+
+#mapIcon{
+    fill: red;
+    stroke: red;
+    height: 28px;
+    width: 28px;
+}
