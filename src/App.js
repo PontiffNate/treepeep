@@ -125,7 +125,7 @@ export default class App extends Component {
             </Modal.Body>
             <Modal.Footer>
               <Button variant="danger" onClick={this.handleSignIn}>Close</Button>
-              <Button variant="success" onClick={this.handleSignIn}>Sign Up</Button>
+              <Button variant="success" onClick={this.handleSignIn}>Sign In</Button>
             </Modal.Footer>
         </Modal>
 
