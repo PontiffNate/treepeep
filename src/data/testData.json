@@ -1,0 +1,42 @@
+{
+    "trees": [
+      {
+        "ID": 960,
+        "NAME": "tree1",
+        "IMAGE_URL": "C:/Users/Nathan Falkenburg/Desktop/treepeep/treepeep/src/data/tree0.jpg",
+        "coordinates": [-75.3372987731628, 45.383321536272049],
+        "DESCRIPTION": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam laoreet, lacus scelerisque interdum blandit, purus sem aliquam metus, sed luctus ipsum diam ac erat. Quisque sit amet magna vitae nisl blandit pharetra. Suspendisse scelerisque porttitor ipsum sit amet bibendum. Nulla sit amet ullamcorper turpis. Curabitur at lectus ut diam venenatis rhoncus. Phasellus hendrerit auctor pulvinar. Morbi semper urna et convallis egestas. Fusce fringilla finibus facilisis. Nullam eu dignissim libero.",
+        "LIKES": 5,
+        "SPECIES": "Oak",
+        "HEIGHT": "10 feet",
+        "AUTHOR_ID": 1
+      },
+      {
+        "ID": 2,
+        "NAME": "tree2",
+        "IMAGE_URL": "../data/tree1.png",
+        "coordinates": [-76.3372987731628, 45.383321536272049],
+        "DESCRIPTION": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam laoreet, lacus scelerisque interdum blandit, purus sem aliquam metus, sed luctus ipsum diam ac erat. Quisque sit amet magna vitae nisl blandit pharetra. Suspendisse scelerisque porttitor ipsum sit amet bibendum. Nulla sit amet ullamcorper turpis. Curabitur at lectus ut diam venenatis rhoncus. Phasellus hendrerit auctor pulvinar. Morbi semper urna et convallis egestas. Fusce fringilla finibus facilisis. Nullam eu dignissim libero.",
+        "LIKES": 10,
+        "SPECIES": "Oak",
+        "HEIGHT": "10 feet",
+        "AUTHOR_ID": 2
+    }
+  ],
+    "users": [
+      {
+        "ID": 1,
+        "NAME": "The Cat in the Hat"
+      },
+      {
+        "ID": 2,
+        "NAME": "The Lorax"
+      }
+  ],
+    "comments": [
+      {
+        "ID": 1,
+        "COMMENT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      }
+    ]
+  }
