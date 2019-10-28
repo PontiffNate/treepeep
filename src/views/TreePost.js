@@ -3,12 +3,16 @@ import "./TreePost.css"
 import {
     Card,
     ListGroup,
-    ListGroupItem
+    ListGroupItem,
+    Image
  } from 'react-bootstrap';
 // import "./TreePost.css"
 import * as testData from "../data/testData.json";
 import tree0 from '../data/tree0.jpg';
 import CommentForm from "./CommentForm";
+import likeIcon from "../data/open-iconic-master/svg/heart.svg";
+import commentIcon from "../data/open-iconic-master/svg/comment-square.svg";
+import mapIcon from "../data/open-iconic-master/svg/map-marker.svg"
 
 export default class TreePost extends Component {
     post = getTreePost();
@@ -20,6 +24,11 @@ export default class TreePost extends Component {
                 <Card style={{ width: '40rem' }}>
                     {/* <Card.Img variant="top" src={"" + this.props.post.IMAGE_URL} /> */}
                     <Card.Img variant="top" src={tree0} />
+                    <Card.ImgOverlay id ="cardOverlay" >
+                        <Image src={likeIcon} className="iconic" id = "likeIcon" fluid />
+                        <Image src={commentIcon} className="iconic" id = "commIcon" fluid />
+                        <a href="/map"><Image src={mapIcon} className="iconic" id="mapIcon" fluid /></a>
+                    </Card.ImgOverlay>
                     <Card.Body>
                     <Card.Title>{this.post.NAME}</Card.Title>
                     <Card.Text>
@@ -32,8 +41,6 @@ export default class TreePost extends Component {
                         <ListGroupItem>Species: {this.post.SPECIES}</ListGroupItem>
                         <ListGroupItem>Height: {this.post.HEIGHT}</ListGroupItem>
                     </ListGroup>
-                    <Card.Body>
-                    </Card.Body>
                 </Card>
 
                 <Card id="comments-section" style={{ width: '40rem' }}>
@@ -47,8 +54,6 @@ export default class TreePost extends Component {
                         <ListGroupItem>Love the colors!</ListGroupItem>
                         <ListGroupItem>Hey I live near there!</ListGroupItem>
                     </ListGroup>
-                    <Card.Body>
-                    </Card.Body>
                 </Card>
             </div>
         );

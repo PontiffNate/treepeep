@@ -10,3 +10,24 @@
 .leave-comm {
     font-style: italic;
 }
+
+#likeIcon{
+    height: 32px;
+    width: 32px;
+    fill: red;
+    stroke: red;
+}
+
+#commIcon{
+    fill: red;
+    stroke: red;
+    height: 28px;
+    width: 28px;
+}
+
+#mapIcon{
+    fill: red;
+    stroke: red;
+    height: 28px;
+    width: 28px;
+}
