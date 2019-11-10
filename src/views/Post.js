@@ -9,17 +9,14 @@ export default class Post extends Component {
                 <form method="post" name="TreePost">
                 <label>Picture:</label>
                 <input type="file" name="TreePicture"/>
-                <br />
                 <label>Title Of Post:</label>
                 <input name="title" type="text"/>
-                <br />
                 <label>Discription Of Tree:</label>
                 <textarea rows="4" cols="94"/>
-                <br />
-                <br />
                 <label>Species:</label>
-                <select>
-                    <option value="Arborvitae">Arborvitae</option>
+                <input type="text" list="species"></input>
+                <datalist id="species">
+                <option value="Arborvitae">Arborvitae</option>
                     <option value="Black Ash">Black Ash</option>
                     <option value="White Ash">White Ash</option>
                     <option value="Bigtooth Aspen">Bigtooth Aspen</option>
@@ -66,8 +63,7 @@ export default class Post extends Component {
                     <option value="Tulip Tree">Tulip Tree</option>
                     <option value="Black Walnut">Black Walnut</option>
                     <option value="Black Willow">Black Willow</option>
-                </select>
-                <br />
+                </datalist>
                 <br />
                 <label>Hieght of the Tree:</label>
                 <input name="Hieght" type="number"/>
@@ -75,7 +71,6 @@ export default class Post extends Component {
                     <option value="feet">Feet</option>
                     <option value="meters">Meters</option>
                 </select>
-                <br />
                 <br />
                 <label>GPS Loacation of Tree:</label>
                 <input name="place" type="text"/>
