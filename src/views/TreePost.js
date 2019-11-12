@@ -14,9 +14,13 @@ import likeIcon from "../data/open-iconic-master/svg/heart.svg";
 import commentIcon from "../data/open-iconic-master/svg/comment-square.svg";
 import mapIcon from "../data/open-iconic-master/svg/map-marker.svg"
 
+import TreeController from "./DatabaseControllers/TreeController";
+
 export default class TreePost extends Component {
     post = getTreePost();
     render() {
+        var tc = new TreeController();
+        console.log(tc.getTreeByID(getTreePostID()));
         return (
             <div>
                 <h1>{this.post.NAME}</h1>
