@@ -40,6 +40,7 @@ export default class App extends Component {
       // Allows these fuctions access to this (so they can access this.state)
       this.handleSignIn = this.handleSignIn.bind(this);
       this.handleSignUp = this.handleSignUp.bind(this);
+      this.handleChange = this.handleChange.bind(this);
     }
     // componentDidMount(){
     //     fetch('http://localhost:9000/stock')
@@ -54,12 +55,20 @@ export default class App extends Component {
         this.setState({
             showSignUpOverlay: !this.state.showSignUpOverlay
         })
+        console.log(this.state);
     }
     handleSignIn(event) {
         this.setState({
             showSignInOverlay: !this.state.showSignInOverlay
         })
+        console.log(this.state);
     }
+
+    // Handles all other form changes
+    handleChange(event) {
+        this.setState({[event.target.id]: event.target.value});
+    }
+
     render(){
         return (
           <React.Fragment>
@@ -91,19 +100,19 @@ export default class App extends Component {
             <Modal.Body>
               <Form>
                 <Form.Label>Username</Form.Label>
-                <Form.Control id="username" required="True" placeholder="CoolTreeGuy12"/>
+                <Form.Control id="usernameSignUp" required="True" placeholder="CoolTreeGuy12"onChange={this.handleChange}/>
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" id="password" required="True" placeholder="******"/>
+                <Form.Control type="password" id="passwordSignUp" required="True" placeholder="******"onChange={this.handleChange}/>
                 <Form.Label>Confirm Password</Form.Label>
-                <Form.Control type="password" id="passwordConf" required="True" placeholder="******"/>
+                <Form.Control type="password" id="passwordConfSignUp" required="True" placeholder="******"onChange={this.handleChange}/>
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" id="email" required="True" placeholder="temp@email.com"/>
+                <Form.Control type="email" id="emailSignUp" required="True" placeholder="temp@email.com"onChange={this.handleChange}/>
                 <Form.Label>Name</Form.Label>
-                <Form.Control id="name" required="True" placeholder="John"/>
+                <Form.Control id="nameSignUp" required="True" placeholder="John"onChange={this.handleChange}/>
                 <Form.Label>Age</Form.Label>
-                <Form.Control id="age" required="True" placeholder="18"/>
+                <Form.Control id="ageSignUp" required="True" placeholder="18"onChange={this.handleChange}/>
                 <Form.Label>State</Form.Label>
-                <Form.Control id="state" required="True" placeholder="NY"/>
+                <Form.Control id="stateSignUp" required="True" placeholder="NY"onChange={this.handleChange}/>
               </Form>
             </Modal.Body>
             <Modal.Footer>
@@ -119,9 +128,9 @@ export default class App extends Component {
             </Modal.Header>
             <Modal.Body>
                 <Form.Label>Username</Form.Label>
-                <Form.Control id="username" required="True" placeholder="CoolTreeGuy12"/>
+                <Form.Control id="usernameLogIn" required="True" placeholder="CoolTreeGuy12" onChange={this.handleChange}/>
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" id="password" required="True" placeholder="******"/>
+                <Form.Control type="password" id="passwordLogIn" required="True" placeholder="******" onChange={this.handleChange}/>
             </Modal.Body>
             <Modal.Footer>
               <Button variant="danger" onClick={this.handleSignIn}>Close</Button>
