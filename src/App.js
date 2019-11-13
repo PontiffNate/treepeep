@@ -114,18 +114,18 @@ export default class App extends Component {
         <Modal size="lg" aria-labelled show={this.state.showSignInOverlay} by="contained-modal-title-vcenter" centered>
             <Modal.Header>
               <Modal.Title id="contained-modal-title-vcenter">
-                Sign In to Treepeep
+                Log In to Treepeep
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form.Label>Username</Form.Label>
-                <Form.Control id="usernameme" required="True" placeholder="CoolTreeGuy12"/>
+                <Form.Control id="username" required="True" placeholder="CoolTreeGuy12"/>
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" id="password" required="True" placeholder="******"/>
             </Modal.Body>
             <Modal.Footer>
               <Button variant="danger" onClick={this.handleSignIn}>Close</Button>
-              <Button variant="success" onClick={this.handleSignIn}>Sign In</Button>
+              <Button variant="success" onClick={this.handleSignIn}>Log In</Button>
             </Modal.Footer>
         </Modal>
 
