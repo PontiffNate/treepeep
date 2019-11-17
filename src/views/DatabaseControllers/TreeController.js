@@ -8,7 +8,7 @@ import React, {Component} from "react";
 export default class TreeController{
 
 
-    url = "https://content-sheets.googleapis.com/v4/spreadsheets/10ju1elheSXSyExtol1vIXqYyPTSG5n4iyDFMOeO_stY/values/Sheet1!B2%3AJ300?key=AIzaSyAfA3OSKh3y4KW9Lqs3h7GXS-FTKlpdo84";
+    url = "https://content-sheets.googleapis.com/v4/spreadsheets/" + config.treeSpreadsheetId + "/values/Sheet1!B2%3AJ300?key=" + config.api_key;
     treeData;
     constructor(props) {
         var xhReq = new XMLHttpRequest();
@@ -23,9 +23,9 @@ export default class TreeController{
         for (var i = 0; i < this.treeData.values.length; i++) {
             if (this.treeData.values[i][0] == id.toString()) {
                 found = this.treeData.values[i];
+                break;
             }
         }
-        console.log(this.mapTreeArrayToJSON(found));
         return this.mapTreeArrayToJSON(found);
         
     }
