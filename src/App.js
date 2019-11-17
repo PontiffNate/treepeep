@@ -22,12 +22,14 @@ import {
     Navbar,
     Nav,
     NavDropdown,
+    NavItem,
     Form,
     FormControl,
     Row,
     Modal,
-    Col
+    Col,
  } from 'react-bootstrap';
+
 
 export default class App extends Component {
     constructor(props) {
@@ -63,6 +65,19 @@ export default class App extends Component {
     render(){
         return (
           <React.Fragment>
+            <Nav id = "sidenav" defaultActiveKey="/" className="flex-column">
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/map">Map</Nav.Link>
+              <Nav.Link href="/about">About</Nav.Link>
+              <Nav.Link href="/new-post">Post</Nav.Link>
+              <Form.Group id="formBasicCheckbox">
+                <Form.Check type="radio" label="Filter1" />
+                <Form.Check type="radio" label="Filter2" />
+                <Form.Check type="radio" label="Filter3" />
+              </Form.Group>
+
+            </Nav>
+
             <Navbar bg="dark" fixed="top" variant="dark" id = "navBar">
                 <div className="col-9">
                   <Navbar.Brand href="/">
@@ -80,97 +95,81 @@ export default class App extends Component {
                   <Button variant="outline-warning" onClick={this.handleSignIn}>Log In</Button>
                 </div>
               </div>
-        </Navbar>
+            </Navbar>
 
-        <Modal size="lg" aria-labelled show={this.state.showSignUpOverlay} by="contained-modal-title-vcenter" centered>
-            <Modal.Header>
-              <Modal.Title id="contained-modal-title-vcenter">
-                Sign Up to Treepeep
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Form>
-                <Form.Label>Username</Form.Label>
-                <Form.Control id="username" required="True" placeholder="CoolTreeGuy12"/>
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" id="password" required="True" placeholder="******"/>
-                <Form.Label>Confirm Password</Form.Label>
-                <Form.Control type="password" id="passwordConf" required="True" placeholder="******"/>
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" id="email" required="True" placeholder="temp@email.com"/>
-                <Form.Label>Name</Form.Label>
-                <Form.Control id="name" required="True" placeholder="John"/>
-                <Form.Label>Age</Form.Label>
-                <Form.Control id="age" required="True" placeholder="18"/>
-                <Form.Label>State</Form.Label>
-                <Form.Control id="state" required="True" placeholder="NY"/>
-              </Form>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="danger" onClick={this.handleSignUp}>Close</Button>
-              <Button variant="success" onClick={this.handleSignUp}>Sign Up</Button>
-            </Modal.Footer>
-        </Modal>
-        <Modal size="lg" aria-labelled show={this.state.showSignInOverlay} by="contained-modal-title-vcenter" centered>
-            <Modal.Header>
-              <Modal.Title id="contained-modal-title-vcenter">
-                Sign In to Treepeep
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <Form.Label>Username</Form.Label>
-                <Form.Control id="usernameme" required="True" placeholder="CoolTreeGuy12"/>
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" id="password" required="True" placeholder="******"/>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="danger" onClick={this.handleSignIn}>Close</Button>
-              <Button variant="success" onClick={this.handleSignIn}>Sign In</Button>
-            </Modal.Footer>
-        </Modal>
+            <Modal size="lg" aria-labelled show={this.state.showSignUpOverlay} by="contained-modal-title-vcenter" centered>
+                <Modal.Header>
+                  <Modal.Title id="contained-modal-title-vcenter">
+                    Sign Up to Treepeep
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <Form>
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control id="username" required="True" placeholder="CoolTreeGuy12"/>
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" id="password" required="True" placeholder="******"/>
+                    <Form.Label>Confirm Password</Form.Label>
+                    <Form.Control type="password" id="passwordConf" required="True" placeholder="******"/>
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="email" id="email" required="True" placeholder="temp@email.com"/>
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control id="name" required="True" placeholder="John"/>
+                    <Form.Label>Age</Form.Label>
+                    <Form.Control id="age" required="True" placeholder="18"/>
+                    <Form.Label>State</Form.Label>
+                    <Form.Control id="state" required="True" placeholder="NY"/>
+                  </Form>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="danger" onClick={this.handleSignUp}>Close</Button>
+                  <Button variant="success" onClick={this.handleSignUp}>Sign Up</Button>
+                </Modal.Footer>
+            </Modal>
 
-          <Router>
-              <h1>1</h1>
-              <Row>
-                  <Col md="1" id = "navCol">
-                      <Nav id = "filter" defaultActiveKey="/" className="flex-column">
-                      <Form.Group controlId="formBasicCheckbox">
-                         <Form.Check type="checkbox" label="Filter1" />
-                         <Form.Check type="checkbox" label="Filter2" />
-                         <Form.Check type="checkbox" label="Filter3" />
-                      </Form.Group>
-                      </Nav>
-                      <Nav id = "nav" defaultActiveKey="/" className="flex-column">
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/map">Map</Nav.Link>
-                        <Nav.Link href="/about">About</Nav.Link>
-                        <Nav.Link href="/new-post">Post</Nav.Link>
-                      </Nav>
-                  </Col>
+            <Modal size="lg" aria-labelled show={this.state.showSignInOverlay} by="contained-modal-title-vcenter" centered>
+                <Modal.Header>
+                  <Modal.Title id="contained-modal-title-vcenter">
+                    Sign In to Treepeep
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control id="usernameme" required="True" placeholder="CoolTreeGuy12"/>
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" id="password" required="True" placeholder="******"/>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="danger" onClick={this.handleSignIn}>Close</Button>
+                  <Button variant="success" onClick={this.handleSignIn}>Sign In</Button>
+                </Modal.Footer>
+            </Modal>
 
-                  {/* A <Switch> looks through its children <Route>s and
-                      renders the first one that matches the current URL. */}
-                  <Col md="auto" id ="displayCol">
-                      <Switch>
-                        <Route path="/about">
-                          <About />
-                        </Route>
-                        <Route path="/new-post">
-                          <Post />
-                        </Route>
-                        <Route path="/post">
-                          <TreePost />
-                        </Route>
-                        <Route path="/map">
-                          <TreeMap />
-                        </Route>
-                        <Route path="/">
-                          <Home />
-                        </Route>
-                      </Switch>
-                  </Col>
-              </Row>
-          </Router>
+            <Router>
+                <Row>
+                    {/* A <Switch> looks through its children <Route>s and
+                        renders the first one that matches the current URL. */}
+                    <Col md="auto" id="displayCol">
+                        <Switch>
+                          <Route path="/about">
+                            <About />
+                          </Route>
+                          <Route path="/new-post">
+                            <Post />
+                          </Route>
+                          <Route path="/post">
+                            <TreePost />
+                          </Route>
+                          <Route path="/map">
+                            <TreeMap />
+                          </Route>
+                          <Route path="/">
+                            <Home />
+                          </Route>
+                        </Switch>
+                    </Col>
+                </Row>
+            </Router>
 
           </React.Fragment>
         );

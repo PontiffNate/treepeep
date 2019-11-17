@@ -20,10 +20,15 @@
 .App-link {
   color: #09d3ac;
 } */
+body {
+  padding-top: 100px;
+}
+
 #navBar {
   background-color: #193b1a !important;
   width: 100%;
-    /* height: 80px; */
+  height: 95px;
+  z-index: 1; 
     /* position: -webkit-sticky;
     position: sticky;
     top: 0; */
@@ -56,18 +61,57 @@
 }
 
 #navCol {
-    padding-top: 20px;
+    background-color: #193b1a !important;
+    position: fixed;
+    height: 100%;
     padding-left: 2%;
     padding: 2%;
-    margin-top: 35px;
 }
 
 #displayCol {
     padding: 5px;
-    width: 75%;
+    width: 87%;
     height: 100%;
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-top: 35px;
+    left: 180px;
+}
+
+/* The sidebar menu */
+#sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #193b1a !important;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 95px;
+}
+
+/* The navigation menu links */
+#sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+#sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Style page content */
+#main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
