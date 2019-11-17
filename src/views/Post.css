@@ -1,26 +1,58 @@
 
-  form label, form input {
-    display: block;
-    margin-bottom: 10px;
-    width: 90%
-}
-  
+@import url(https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css);
+
 form input {
-    padding: 10px;
-    border: solid 1px #BDC7D8;
-  
+    width: 100%;
+    padding: 12px 20px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form select {
+    width: 25%;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form label {
+    width: 100%;
+    margin: 4px 0;
+    display: inline-block;
+}
+
+textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
   
-.button {
-    background-color: #00BFFF;
-    border-color: #3ac162;
-    font-weight: bold;
-    padding: 12px 15px;
-    color: #ffffff;
+input[type=submit] {
+    width: 25%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+  
+input[type=submit]:hover {
+    background-color: #45a049;
 }
 
 .container {
     width: 80%;
-    height: 100%;
-    padding: 50px;
+    height: 95%;
+    padding: 20px;
 }
