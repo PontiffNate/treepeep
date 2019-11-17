@@ -17,10 +17,11 @@ import mapIcon from "../data/open-iconic-master/svg/map-marker.svg"
 import TreeController from "./DatabaseControllers/TreeController";
 
 export default class TreePost extends Component {
-    post = getTreePost();
+    post = null;
     render() {
         var tc = new TreeController();
-        console.log(tc.getTreeByID(getTreePostID()));
+        this.post = tc.getTreeByID(getTreePostID());
+        console.log("POST: " + this.post);
         return (
             <div>
                 <h1>{this.post.NAME}</h1>
