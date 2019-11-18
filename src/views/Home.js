@@ -8,7 +8,7 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-            <h1><Badge variant="success">Global</Badge>Tree Feed</h1>
+            <h1 align="center">Tree Feed</h1>
               {testData.trees.map((post) => {
                 return <TreeFeedPost post={post}/>
               })}
@@ -16,5 +16,3 @@ export default class Home extends Component {
         );
     }
 }
-
-
