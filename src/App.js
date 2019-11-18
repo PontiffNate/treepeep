@@ -35,12 +35,19 @@ export default class App extends Component {
       this.state = {
           showSignUpOverlay: false,
           showSignInOverlay: false,
+          showSignOutOverlay: false,
+          loggedIn: false,
+          filter: "none",
       };
 
       // Allows these fuctions access to this (so they can access this.state)
       this.handleSignIn = this.handleSignIn.bind(this);
       this.handleSignUp = this.handleSignUp.bind(this);
       this.handleChange = this.handleChange.bind(this);
+      this.signInSignUp = this.signInSignUp.bind(this);
+      this.handleSignOut = this.handleSignOut.bind(this);
+      this.handleRadio = this.handleRadio.bind(this);
+      this.handleFilterSubmission = this.handleFilterSubmission.bind(this);
     }
     // componentDidMount(){
     //     fetch('http://localhost:9000/stock')
@@ -59,14 +66,61 @@ export default class App extends Component {
     }
     handleSignIn(event) {
         this.setState({
-            showSignInOverlay: !this.state.showSignInOverlay
+            showSignInOverlay: !this.state.showSignInOverlay,
         })
-        console.log(this.state);
+        if(event.target.id == "cancel"){
+            this.setState({
+                loggedIn: false
+            })
+        }
+        else {
+            this.setState({
+                loggedIn: true
+            })
+        }
+    }
+    handleSignOut(event) {
+        this.setState({
+            showSignOutOverlay: !this.state.showSignOutOverlay,
+        })
+        if(event.target.id == "cancel"){
+            this.setState({
+                loggedIn: true
+            })
+        }
+        else {
+            this.setState({
+                loggedIn: false
+            })
+        }
+    }
+
+    handleRadio(event){
+        this.setState({
+            filter: event.target.id,
+        })
+    }
+
+    handleFilterSubmission(event){
+        console.log(event);
     }
 
     // Handles all other form changes
     handleChange(event) {
         this.setState({[event.target.id]: event.target.value});
+    }
+
+    signInSignUp(){
+        if(!this.state.loggedIn){
+            return (<div className="btn-group btn-group-lg" role="group">
+              <Button variant="outline-warning" onClick={this.handleSignUp}>Sign Up</Button>
+              <Button variant="outline-warning" onClick={this.handleSignIn}>Log In</Button>
+            </div>)
+
+        }
+        return (<div className="btn-group btn-group-lg" role="group">
+            <Button variant="outline-warning" onClick={this.handleSignOut}>Log Out</Button>
+            </div>)
     }
 
     render(){
@@ -84,10 +138,7 @@ export default class App extends Component {
                   </Navbar.Brand>
               </div>
               <div className="col-md-auto">
-                <div className="btn-group btn-group-lg" role="group">
-                  <Button variant="outline-warning" onClick={this.handleSignUp}>Sign Up</Button>
-                  <Button variant="outline-warning" onClick={this.handleSignIn}>Log In</Button>
-                </div>
+                {this.signInSignUp()}
               </div>
         </Navbar>
 
@@ -116,7 +167,7 @@ export default class App extends Component {
               </Form>
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="danger" onClick={this.handleSignUp}>Close</Button>
+              <Button variant="danger" id = "cancel" onClick={this.handleSignUp}>Close</Button>
               <Button variant="success" onClick={this.handleSignUp}>Sign Up</Button>
             </Modal.Footer>
         </Modal>
@@ -133,8 +184,23 @@ export default class App extends Component {
                 <Form.Control type="password" id="passwordLogIn" required="True" placeholder="******" onChange={this.handleChange}/>
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="danger" onClick={this.handleSignIn}>Close</Button>
+              <Button variant="danger" id = "cancel" onClick={this.handleSignIn}>Close</Button>
               <Button variant="success" onClick={this.handleSignIn}>Log In</Button>
+            </Modal.Footer>
+        </Modal>
+
+        <Modal size="lg" aria-labelled show={this.state.showSignOutOverlay} by="contained-modal-title-vcenter" centered>
+            <Modal.Header>
+              <Modal.Title id="contained-modal-title-vcenter">
+                Log Out of Treepeep
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                Are your sure you want to log out?
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="danger" id = "cancel" onClick={this.handleSignOut}>Cancel</Button>
+              <Button variant="success" onClick={this.handleSignOut}>Log Out</Button>
             </Modal.Footer>
         </Modal>
 
@@ -144,9 +210,10 @@ export default class App extends Component {
                   <Col md="1" id = "navCol">
                       <Nav id = "filter" defaultActiveKey="/" className="flex-column">
                       <Form.Group controlId="formBasicCheckbox">
-                         <Form.Check type="radio" label="Filter1" />
-                         <Form.Check type="radio" label="Filter2" />
-                         <Form.Check type="radio" label="Filter3" />
+                         <Form.Check type="radio" checked={this.state.filter === "likes"} label="Likes" id = "likes" onChange={this.handleRadio} />
+                         <Form.Check type="radio" checked={this.state.filter === "date"} label="Date" id = "date" onChange={this.handleRadio}/>
+                         <Form.Check type="radio" checked={this.state.filter === "name"} label="Alphabetical" id = "name" onChange={this.handleRadio}/>
+                         <Button variant="success" onClick={this.handleFilterSubmission}>Apply</Button>
                       </Form.Group>
                       </Nav>
                       <Nav id = "nav" defaultActiveKey="/" className="flex-column">
