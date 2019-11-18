@@ -40,7 +40,7 @@ export default class TreePost extends Component {
                     <Card.ImgOverlay id ="cardOverlay" >
                         <Image src={likeIcon} className="iconic" id = "likeIcon" fluid />
                         <a href="#comments-section"><Image src={commentIcon} className="iconic" id = "commIcon" fluid /></a>
-                        <a href="/map"><Image src={mapIcon} className="iconic" id="mapIcon" fluid /></a>
+                        <a href={"/map?id=" + this.post.ID}><Image src={mapIcon} className="iconic" id="mapIcon" fluid /></a>
                     </Card.ImgOverlay>
                     <Card.Body>
                     <Card.Title>{this.post.NAME}</Card.Title>
