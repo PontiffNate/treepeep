@@ -50,8 +50,30 @@ export default class CommentController{
 
 
 
-    newTree(name, image_url, coordinates, description, likes, species, height, author_id) {
-    
+    newComment(treeID, commentText, authorID=1) {
+        var highest = 0;
+        for (var i = 0; i < this.commentData.values.length; i++) {
+            if (parseInt(this.commentData.values[i][0]) > highest) {
+                highest = parseInt(this.commentData.values[i][0]);
+            }
+        }
+        var spreadSheetRange = "Sheet1!A" + (this.commentData.values.length + 2) + ":B" + (this.commentData.values.length + 2);
+        console.log(spreadSheetRange);
+        var params = {
+            "range": spreadSheetRange,
+            "majorDimension": "ROWS",
+            "values": [
+                highest,
+                commentText,
+                treeID,
+                authorID
+            ]
+        };
+        var xhr = new XMLHttpRequest();
+        xhr.open('PUT', "https://sheets.googleapis.com/v4/spreadsheets/" + config.commentSpreadsheetId + "/values/" + spreadSheetRange + "?key=" + config.api_key);
+        xhr.setRequestHeader('Authorization', "EJQmd3r91elJNF0723x2IyOF");
+        xhr.send(JSON.stringify(params));
+
     }
 
 }
