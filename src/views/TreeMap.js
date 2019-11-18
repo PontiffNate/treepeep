@@ -2,16 +2,12 @@ import React, {useState, Component} from "react";
 import "./TreeMap.css";
 import { GoogleMap, Marker, InfoWindow, withGoogleMap, withScriptjs } from "react-google-maps";
 import * as testData from "../data/testData.json";
-import TreeController from "./DatabaseControllers/TreeController";
-
 
 // import Map from "./GoogleAPIWrapper";
 const MapWrapped = withScriptjs(withGoogleMap(Map));
 
 export default class TreeMap extends Component {
     render() {
-      var tc = new TreeController();
-  tc.newTree("test", "url", [1,2], "desc", 5, "species", "height", 2);
         return(
             <React.Fragment>
                 <div style={{ width: "100vw", height: "100vh" }}>
@@ -29,18 +25,13 @@ export default class TreeMap extends Component {
 }
 
 function Map() {
-    var postID = getSingleTreeID()
-
     const [selectedTree, setSelectedTree] = useState(null);
-    if (isNaN(postID)) {
-      var focusTree = getTree();
-      return (
+    return (
         <GoogleMap
           defaultZoom={10}
-          defaultCenter={{ lat: focusTree.coordinates[0], lng: focusTree.coordinates[1] }}
+          defaultCenter={{ lat: 45.4211, lng: -75.6903 }}
         >
-          {
-            testData.trees.map(treeMap => (
+          {testData.trees.map(treeMap => (
             <Marker
               key={treeMap.TREE_ID}
               position={{
@@ -68,56 +59,4 @@ function Map() {
           )}
         </GoogleMap>
       );
-      
-    } else {
-      return (
-          <GoogleMap
-            defaultZoom={10}
-            defaultCenter={{ lat: 45.4211, lng: -75.6903 }}
-          >
-            {
-              testData.trees.map(treeMap => (
-              <Marker
-                key={treeMap.TREE_ID}
-                position={{
-                  lat: treeMap.coordinates[1],
-                  lng: treeMap.coordinates[0]
-                }}
-                onClick={() => { setSelectedTree(treeMap); }}
-                
-              />
-            ))}
-      
-            {selectedTree && (
-              <InfoWindow
-                onCloseClick={() => { setSelectedTree(null); }}
-                position={{
-                  lat: selectedTree.coordinates[1],
-                  lng: selectedTree.coordinates[0]
-                }}
-              >
-                <div>
-                  <h2>{selectedTree.NAME}</h2>
-                  <img src={""+ selectedTree.IMAGE_URL}/>
-                </div>
-              </InfoWindow>
-            )}
-          </GoogleMap>
-        );
-      }
   }
-
-  function getSingleTreeID() {
-    var url = new URL(window.location.href);
-    var id = url.searchParams.get("id");
-    return parseInt(id);
-}
-
-function getTree() {
-  var id = getSingleTreeID();
-  for (var i = 0; i < testData.trees.length; i++) {
-      if (testData.trees[i].ID === id) {
-          return testData.trees[i];
-      }
-  }
-}
