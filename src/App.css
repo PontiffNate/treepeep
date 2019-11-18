@@ -30,23 +30,49 @@
 }
 
 #nav {
+    color: #FFC107;
+    border-radius: 10px;
+    background-color: #193b1a;
     justify-content: center;
     flex-direction: column;
     /* align-items: center; */
-    outline-style: solid;
     font-size: calc(6px + 2vmin);
     padding: 2%;
     /* height: 30%; */
-    position: -webkit-sticky;
-    position: sticky;
     position: fixed;
 }
 
+a{
+  color: #FFC107;
+}
+
+a:visited{
+  color: #FFC107;
+  background-color: #193b1a;
+}
+
+a:link{
+  color: #FFC107;
+  background-color: #193b1a;
+}
+
+a:hover{
+  color: #193b1a;
+  background-color: #FFC107;
+}
+
+a:active{
+  color: #FFC107;
+  background-color: #193b1a;
+}
+
 #filter {
+    border-radius: 10px;
+    color: white;
+    background-color: #193b1a;
     justify-content: center;
     flex-direction: column;
     /* align-items: center; */
-    outline-style: solid;
     font-size: calc(6px + 2vmin);
     padding: 2%;
     margin-top: 300px;

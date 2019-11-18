@@ -144,9 +144,9 @@ export default class App extends Component {
                   <Col md="1" id = "navCol">
                       <Nav id = "filter" defaultActiveKey="/" className="flex-column">
                       <Form.Group controlId="formBasicCheckbox">
-                         <Form.Check type="checkbox" label="Filter1" />
-                         <Form.Check type="checkbox" label="Filter2" />
-                         <Form.Check type="checkbox" label="Filter3" />
+                         <Form.Check type="radio" label="Filter1" />
+                         <Form.Check type="radio" label="Filter2" />
+                         <Form.Check type="radio" label="Filter3" />
                       </Form.Group>
                       </Nav>
                       <Nav id = "nav" defaultActiveKey="/" className="flex-column">
