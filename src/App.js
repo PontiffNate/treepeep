@@ -210,9 +210,10 @@ export default class App extends Component {
                   <Col md="1" id = "navCol">
                       <Nav id = "filter" defaultActiveKey="/" className="flex-column">
                       <Form.Group controlId="formBasicCheckbox">
+                         <Form.Label>Filters:</Form.Label>
                          <Form.Check type="radio" checked={this.state.filter === "likes"} label="Likes" id = "likes" onChange={this.handleRadio} />
                          <Form.Check type="radio" checked={this.state.filter === "date"} label="Date" id = "date" onChange={this.handleRadio}/>
-                         <Form.Check type="radio" checked={this.state.filter === "name"} label="Alphabetical" id = "name" onChange={this.handleRadio}/>
+                         <Form.Check type="radio" checked={this.state.filter === "name"} label="Name" id = "name" onChange={this.handleRadio}/>
                          <Button variant="success" onClick={this.handleFilterSubmission}>Apply</Button>
                       </Form.Group>
                       </Nav>

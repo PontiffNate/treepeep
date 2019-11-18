@@ -16,6 +16,7 @@ import mapIcon from "../data/open-iconic-master/svg/map-marker.svg"
 export default class TreeFeedPosts extends React.Component {
     render() {
         return(
+            <div id ="post">
             <Card style={{ width: '40rem' }}>
                 {/* <Card.Img variant="top" src={"" + this.props.post.IMAGE_URL} /> */}
                 <Card.Img variant="top" src={tree0} />
@@ -36,6 +37,7 @@ export default class TreeFeedPosts extends React.Component {
                 <ListGroupItem><a href={"/post?id=" + this.props.post.ID}>View Full Post</a></ListGroupItem>
                 </ListGroup>
             </Card>
+            </div>
         );
     }
 }
