@@ -36,13 +36,27 @@ Another special feature of treepeep is the extra connection our users can make t
 
 To get started with treepeep, a few simple things need to be done.
 
-## install yarn
+## install yarn/npm
 
-Why repeat what's already been written down? To install the yarn package manager, visit the [official yarn site](https://yarnpkg.com/lang/en/docs/install/#windows-stable) and follow their instructions!
+Why repeat what's already been written down? Here, we have no preference to what nodejs package manger you have (yarn & npm), just install one of them. 
 
-## run yarn
+If you have Node.js installed, you should have npm installed as well, just verify with `npm -v`. You can also opt for yarn if you please.
+
+To install the yarn package manager, visit the [official yarn site](https://yarnpkg.com/lang/en/docs/install/#windows-stable) and follow their instructions!
+
+
+
+## run the executable
 
  Next, to get the app set up and running, the following commands sould be put into the terminal on your computer.
+
+**for npm**
+
+`npm install`
+
+`npm start`
+
+**for yarn**
 
 `yarn install`
 
@@ -52,7 +66,7 @@ Why repeat what's already been written down? To install the yarn package manager
 
 Finally, all that's left to do is find open the app in your favorite web browser! Just go to `localhost:3000/`, to access treepeep! 
 
-## enjoy
+## enjoy!
 
 All that's left to do is use our app! Now you can sign up and start posting to show off your trees. Have fun!
 
