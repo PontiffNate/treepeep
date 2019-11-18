@@ -55,3 +55,25 @@ Finally, all that's left to do is find open the app in your favorite web browser
 ## enjoy
 
 All that's left to do is use our app! Now you can sign up and start posting to show off your trees. Have fun!
+
+# **future improvements and issues**
+
+Although we love treepeep, there is always room for improvement in the way we do things, and what we could be doing. This section is meant to point out any features we plan to implement in the future (but don't quite right now), and list any known bugs in our system.
+
+## features
+
+### **_Fleshed out Text_**
+
+We love our site, but our content could use some work. Because of that, we're actively working to give it even more character.
+
+### **_Account Logging_**
+
+Although you can play around on the site, at the moment you aren't allowed to be an official treepeep! This is both sad and something that is of the utmost importance to the existing treepeeps.
+
+### **_Form Logging_**
+
+This pertains to the posts you make. As our backend is still under development, the site will feel barren until we give it some permanent data to show. 
+
+## bugs
+
+As of right now, our expert exterminators haven't identified any risky ~~bugs~~ termites that could risk the structure and integrity of the system!
