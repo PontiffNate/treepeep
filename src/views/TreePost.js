@@ -14,9 +14,23 @@ import likeIcon from "../data/open-iconic-master/svg/heart.svg";
 import commentIcon from "../data/open-iconic-master/svg/comment-square.svg";
 import mapIcon from "../data/open-iconic-master/svg/map-marker.svg"
 
+import TreeController from "./DatabaseControllers/TreeController";
+import UserController from "./DatabaseControllers/UserController";
+import CommentController from "./DatabaseControllers/CommentController";
+import Comment from "./Comment";
+
 export default class TreePost extends Component {
-    post = getTreePost();
+    post = null;
+    author = null;
+    comments = null;
     render() {
+        var tc = new TreeController();
+        this.post = tc.getTreeByID(getTreePostID());
+        var uc = new UserController();
+        this.author = uc.getUserByID(this.post.AUTHOR_ID);
+        var cc = new CommentController();
+        this.comments = cc.getCommentsByTreeID(getTreePostID());
+        console.log(this.comments);
         return (
             <div>
                 <h1>{this.post.NAME}</h1>
@@ -36,7 +50,7 @@ export default class TreePost extends Component {
                     </Card.Text>
                     </Card.Body>
                     <ListGroup className="list-group-flush">
-                        <ListGroupItem>Author: {getAuthorName(this.post.AUTHOR_ID)}</ListGroupItem>
+                        <ListGroupItem>Author: {this.author.NAME}</ListGroupItem>
                         <ListGroupItem>Likes: {this.post.LIKES}</ListGroupItem>
                         <ListGroupItem>Species: {this.post.SPECIES}</ListGroupItem>
                         <ListGroupItem>Height: {this.post.HEIGHT}</ListGroupItem>
@@ -50,9 +64,9 @@ export default class TreePost extends Component {
                     </Card.Body>
                     <ListGroup className="list-group-flush">
                         <ListGroupItem><CommentForm/></ListGroupItem>
-                        <ListGroupItem>Cool tree!</ListGroupItem>
-                        <ListGroupItem>Love the colors!</ListGroupItem>
-                        <ListGroupItem>Hey I live near there!</ListGroupItem>
+                        {this.comments.map((comments) => {
+                            return <Comment comments={comments}/>
+                        })}
                     </ListGroup>
                 </Card>
             </div>
