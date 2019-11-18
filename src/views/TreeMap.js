@@ -2,6 +2,7 @@ import React, {useState, Component} from "react";
 import "./TreeMap.css";
 import { GoogleMap, Marker, InfoWindow, withGoogleMap, withScriptjs } from "react-google-maps";
 import * as testData from "../data/testData.json";
+import TreeController from "./DatabaseControllers/TreeController";
 
 // import Map from "./GoogleAPIWrapper";
 const MapWrapped = withScriptjs(withGoogleMap(Map));
@@ -24,9 +25,45 @@ export default class TreeMap extends Component {
     }
 }
 
+function getTreePostID() {
+  var url = new URL(window.location.href);
+  var id = url.searchParams.get("id");
+  return parseInt(id);
+}
+
+
 function Map() {
+    var tc = new TreeController();
     const [selectedTree, setSelectedTree] = useState(null);
-    return (
+    console.log(getTreePostID());
+    if (getTreePostID() > 0) {
+      var treeData = tc.getTreeByID(getTreePostID());
+      return (
+        <GoogleMap
+          defaultZoom={10}
+          defaultCenter={{ lat: treeData.COORDINATES[0], lng: treeData.COORDINATES[1] }}
+        >
+          <Marker
+            key={treeData.ID}
+            position={{ lat: treeData.COORDINATES[0], lng: treeData.COORDINATES[1] }}
+            onClick={() => { setSelectedTree(treeData); }}
+          />
+          {selectedTree && (
+            <InfoWindow
+              onCloseClick={() => { setSelectedTree(null); }}
+              position={{ lat: treeData.COORDINATES[0], lng: treeData.COORDINATES[1] }}
+            >
+              <div>
+                <h2>{selectedTree.NAME}</h2>
+                <img src={""+ selectedTree.IMAGE_URL}/>
+              </div>
+            </InfoWindow>
+          )}
+        </GoogleMap>
+      );
+    } else {
+      var treeData = tc.getAllTrees();
+      return (
         <GoogleMap
           defaultZoom={10}
           defaultCenter={{ lat: 45.4211, lng: -75.6903 }}
@@ -59,4 +96,7 @@ function Map() {
           )}
         </GoogleMap>
       );
+    }
+      
   }
+

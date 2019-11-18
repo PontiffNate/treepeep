@@ -30,6 +30,14 @@ export default class TreeController{
         
     }
 
+    getAllTrees(filter="None") {
+        var fin = [];
+        for (var i = 0; i < this.treeData.values.length; i++) {
+            fin.push(this.mapTreeArrayToJSON(this.treeData.values[i]));
+        }
+        return fin;
+    }
+
     mapTreeArrayToJSON(arr) {
         var coor = arr[3].split(",");
         var fin = {

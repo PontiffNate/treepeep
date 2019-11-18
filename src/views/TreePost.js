@@ -30,7 +30,6 @@ export default class TreePost extends Component {
         this.author = uc.getUserByID(this.post.AUTHOR_ID);
         var cc = new CommentController();
         this.comments = cc.getCommentsByTreeID(getTreePostID());
-        console.log(this.comments);
         return (
             <div>
                 <h1>{this.post.NAME}</h1>
