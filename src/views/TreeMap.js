@@ -65,17 +65,17 @@ function Map() {
       var treeData = tc.getAllTrees();
       return (
         <GoogleMap
-          defaultZoom={10}
-          defaultCenter={{ lat: 45.4211, lng: -75.6903 }}
+          defaultZoom={4}
+          defaultCenter={{ lat: 40.611931, lng: -100.262979 }}
         >
-          {testData.trees.map(treeMap => (
+          {treeData.map(treeData => (
             <Marker
-              key={treeMap.TREE_ID}
+              key={treeData.TREE_ID}
               position={{
-                lat: treeMap.coordinates[1],
-                lng: treeMap.coordinates[0]
+                lat: treeData.COORDINATES[0],
+                lng: treeData.COORDINATES[1]
               }}
-              onClick={() => { setSelectedTree(treeMap); }}
+              onClick={() => { setSelectedTree(treeData); }}
               
             />
           ))}
@@ -84,8 +84,8 @@ function Map() {
             <InfoWindow
               onCloseClick={() => { setSelectedTree(null); }}
               position={{
-                lat: selectedTree.coordinates[1],
-                lng: selectedTree.coordinates[0]
+                lat: selectedTree.COORDINATES[0],
+                lng: selectedTree.COORDINATES[1]
               }}
             >
               <div>
