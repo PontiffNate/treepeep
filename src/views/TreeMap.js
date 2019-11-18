@@ -2,6 +2,7 @@ import React, {useState, Component} from "react";
 import "./TreeMap.css";
 import { GoogleMap, Marker, InfoWindow, withGoogleMap, withScriptjs } from "react-google-maps";
 import * as testData from "../data/testData.json";
+import TreeController from "./DatabaseControllers/TreeController";
 
 // import Map from "./GoogleAPIWrapper";
 const MapWrapped = withScriptjs(withGoogleMap(Map));
@@ -24,21 +25,57 @@ export default class TreeMap extends Component {
     }
 }
 
+function getTreePostID() {
+  var url = new URL(window.location.href);
+  var id = url.searchParams.get("id");
+  return parseInt(id);
+}
+
+
 function Map() {
+    var tc = new TreeController();
     const [selectedTree, setSelectedTree] = useState(null);
-    return (
+    console.log(getTreePostID());
+    if (getTreePostID() > 0) {
+      var treeData = tc.getTreeByID(getTreePostID());
+      return (
         <GoogleMap
           defaultZoom={10}
-          defaultCenter={{ lat: 45.4211, lng: -75.6903 }}
+          defaultCenter={{ lat: treeData.COORDINATES[0], lng: treeData.COORDINATES[1] }}
         >
-          {testData.trees.map(treeMap => (
+          <Marker
+            key={treeData.ID}
+            position={{ lat: treeData.COORDINATES[0], lng: treeData.COORDINATES[1] }}
+            onClick={() => { setSelectedTree(treeData); }}
+          />
+          {selectedTree && (
+            <InfoWindow
+              onCloseClick={() => { setSelectedTree(null); }}
+              position={{ lat: treeData.COORDINATES[0], lng: treeData.COORDINATES[1] }}
+            >
+              <div>
+                <h2>{selectedTree.NAME}</h2>
+                <img src={""+ selectedTree.IMAGE_URL}/>
+              </div>
+            </InfoWindow>
+          )}
+        </GoogleMap>
+      );
+    } else {
+      var treeData = tc.getAllTrees();
+      return (
+        <GoogleMap
+          defaultZoom={4}
+          defaultCenter={{ lat: 40.611931, lng: -100.262979 }}
+        >
+          {treeData.map(treeData => (
             <Marker
-              key={treeMap.TREE_ID}
+              key={treeData.TREE_ID}
               position={{
-                lat: treeMap.coordinates[1],
-                lng: treeMap.coordinates[0]
+                lat: treeData.COORDINATES[0],
+                lng: treeData.COORDINATES[1]
               }}
-              onClick={() => { setSelectedTree(treeMap); }}
+              onClick={() => { setSelectedTree(treeData); }}
               
             />
           ))}
@@ -47,8 +84,8 @@ function Map() {
             <InfoWindow
               onCloseClick={() => { setSelectedTree(null); }}
               position={{
-                lat: selectedTree.coordinates[1],
-                lng: selectedTree.coordinates[0]
+                lat: selectedTree.COORDINATES[0],
+                lng: selectedTree.COORDINATES[1]
               }}
             >
               <div>
@@ -59,4 +96,7 @@ function Map() {
           )}
         </GoogleMap>
       );
+    }
+      
   }
+

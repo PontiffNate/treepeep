@@ -42,26 +42,26 @@
     position: fixed;
 }
 
-a{
+.nav-link{
   color: #FFC107;
 }
 
-a:visited{
-  color: #FFC107;
-  background-color: #193b1a;
-}
-
-a:link{
+.nav-link:visited{
   color: #FFC107;
   background-color: #193b1a;
 }
 
-a:hover{
+.nav-link:link{
+  color: #FFC107;
+  background-color: #193b1a;
+}
+
+.nav-link:hover{
   color: #193b1a;
   background-color: #FFC107;
 }
 
-a:active{
+.nav-link:active{
   color: #FFC107;
   background-color: #193b1a;
 }

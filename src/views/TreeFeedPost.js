@@ -22,7 +22,7 @@ export default class TreeFeedPosts extends React.Component {
                 <Card.Img variant="top" src={tree0} />
                 <Card.ImgOverlay id ="cardOverlay" >
                     <Image src={likeIcon} className="iconic" id = "likeIcon" fluid />
-                    <Image src={commentIcon} className="iconic" id = "commIcon" fluid />
+                    <a href={"/post?id=" + this.props.post.ID + "#comments-section"}><Image src={commentIcon} className="iconic" id = "commIcon" fluid /></a>
                     <a href={"/map?=" + this.props.post.ID}><Image src={mapIcon} className="iconic" id="mapIcon" fluid /></a>
                 </Card.ImgOverlay>
                 <Card.Body>
