@@ -3,16 +3,28 @@ import { Badge } from 'react-bootstrap';
 import "./Home.css"
 import TreeFeedPost from "./TreeFeedPost"
 import * as testData from "../data/testData.json";
+import TreeController from "./DatabaseControllers/TreeController";
 export default class Home extends Component {
-    treeposts = testData.trees
+    treeData = null;
+
     render() {
-        return (
-            <div>
-            <h1 align="center">Tree Feed</h1>
-              {testData.trees.map((post) => {
-                return <TreeFeedPost post={post}/>
-              })}
-            </div>
-        );
+      var filter = getFilter();
+      var tc = new TreeController();
+      this.treeData = tc.getAllTrees(filter);
+      return (
+          <div>
+          <h1 id="treefeed" align="center">Tree Feed</h1>
+            {this.treeData.map((post) => {
+              return <TreeFeedPost post={post}/>
+            })}
+          </div>
+      );
     }
 }
+
+function getFilter() {
+  var url = new URL(window.location.href);
+  var filter = url.searchParams.get("filter");
+  return filter;
+}
+

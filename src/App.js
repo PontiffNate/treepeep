@@ -28,6 +28,7 @@ import {
     Modal,
     Col
  } from 'react-bootstrap';
+import FilterForm from "./views/FilterForm";
 
 export default class App extends Component {
     constructor(props) {
@@ -36,8 +37,7 @@ export default class App extends Component {
           showSignUpOverlay: false,
           showSignInOverlay: false,
           showSignOutOverlay: false,
-          loggedIn: false,
-          filter: "none",
+          loggedIn: false
       };
 
       // Allows these fuctions access to this (so they can access this.state)
@@ -46,8 +46,6 @@ export default class App extends Component {
       this.handleChange = this.handleChange.bind(this);
       this.signInSignUp = this.signInSignUp.bind(this);
       this.handleSignOut = this.handleSignOut.bind(this);
-      this.handleRadio = this.handleRadio.bind(this);
-      this.handleFilterSubmission = this.handleFilterSubmission.bind(this);
     }
     // componentDidMount(){
     //     fetch('http://localhost:9000/stock')
@@ -95,16 +93,6 @@ export default class App extends Component {
         }
     }
 
-    handleRadio(event){
-        this.setState({
-            filter: event.target.id,
-        })
-    }
-
-    handleFilterSubmission(event){
-        console.log(event);
-    }
-
     // Handles all other form changes
     handleChange(event) {
         this.setState({[event.target.id]: event.target.value});
@@ -122,6 +110,7 @@ export default class App extends Component {
             <Button variant="outline-warning" onClick={this.handleSignOut}>Log Out</Button>
             </div>)
     }
+
 
     render(){
         return (
@@ -208,15 +197,7 @@ export default class App extends Component {
               <h1>1</h1>
               <Row>
                   <Col md="1" id = "navCol">
-                      <Nav id = "filter" defaultActiveKey="/" className="flex-column">
-                      <Form.Group controlId="formBasicCheckbox">
-                         <Form.Label>Filters:</Form.Label>
-                         <Form.Check type="radio" checked={this.state.filter === "likes"} label="Likes" id = "likes" onChange={this.handleRadio} />
-                         <Form.Check type="radio" checked={this.state.filter === "date"} label="Date" id = "date" onChange={this.handleRadio}/>
-                         <Form.Check type="radio" checked={this.state.filter === "name"} label="Name" id = "name" onChange={this.handleRadio}/>
-                         <Button variant="success" onClick={this.handleFilterSubmission}>Apply</Button>
-                      </Form.Group>
-                      </Nav>
+                      <FilterForm isHome={true}/>
                       <Nav id = "nav" defaultActiveKey="/" className="flex-column">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/map">Map</Nav.Link>

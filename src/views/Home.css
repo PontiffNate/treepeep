@@ -17,20 +17,20 @@ h1 {
 #likeIcon{
     height: 32px;
     width: 32px;
-    fill: red;
-    stroke: red;
+    fill: #fe6e32;
+    stroke: #fe6e32;
 }
 
 #commIcon{
-    fill: red;
-    stroke: red;
+    fill: #fe6e32;
+    stroke: #fe6e32;
     height: 28px;
     width: 28px;
 }
 
 #mapIcon{
-    fill: red;
-    stroke: red;
+    fill: #fe6e32;
+    stroke: #fe6e32;
     height: 28px;
     width: 28px;
 }
