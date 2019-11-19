@@ -8,7 +8,7 @@ import {
  
 import '../App.css';
 
-export default class CommentForm extends Component {
+export default class FilterForm extends Component {
     constructor(props) {
         super(props)
       this.state = {
@@ -30,17 +30,31 @@ export default class CommentForm extends Component {
         window.location.href = window.location.origin + "?filter=" + this.state.filter;
     }
 
+    isHome() {
+        var url = window.location.href;
+        url = url.split('?')[0];
+        url = url.substring(0, url.length - 1);
+        if (url == window.location.origin) {
+            return true;
+        }
+        return false;
+    }
+
     render() {
-        return (
-            <Nav id = "filter" defaultActiveKey="/" className="flex-column">
-            <Form.Group controlId="formBasicCheckbox">
-               <Form.Label>Sort By:</Form.Label>
-               <Form.Check type="radio" checked={this.state.filter === "likes"} label="Likes" id = "likes" onChange={this.handleRadio} />
-               <Form.Check type="radio" checked={this.state.filter === "name"} label="Name" id = "name" onChange={this.handleRadio}/>
-               <Button variant="success" onClick={this.handleFilterSubmission}>Apply</Button>
-            </Form.Group>
-            </Nav>
-        );
+        if (this.isHome()) {
+            return (
+                <Nav id = "filter" defaultActiveKey="/" className="flex-column">
+                <Form.Group controlId="formBasicCheckbox">
+                   <Form.Label>Sort By:</Form.Label>
+                   <Form.Check type="radio" checked={this.state.filter === "likes"} label="Likes" id = "likes" onChange={this.handleRadio} />
+                   <Form.Check type="radio" checked={this.state.filter === "name"} label="Name" id = "name" onChange={this.handleRadio}/>
+                   <Button variant="success" onClick={this.handleFilterSubmission}>Apply</Button>
+                </Form.Group>
+                </Nav>
+            );
+        } else {
+            return (null);
+        }
     }
 
 }

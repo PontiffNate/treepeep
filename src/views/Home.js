@@ -13,7 +13,7 @@ export default class Home extends Component {
       this.treeData = tc.getAllTrees(filter);
       return (
           <div>
-          <h1 align="center">Tree Feed</h1>
+          <h1 id="treefeed" align="center">Tree Feed</h1>
             {this.treeData.map((post) => {
               return <TreeFeedPost post={post}/>
             })}

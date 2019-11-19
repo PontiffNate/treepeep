@@ -197,7 +197,7 @@ export default class App extends Component {
               <h1>1</h1>
               <Row>
                   <Col md="1" id = "navCol">
-                      <FilterForm/>
+                      <FilterForm isHome={true}/>
                       <Nav id = "nav" defaultActiveKey="/" className="flex-column">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/map">Map</Nav.Link>
