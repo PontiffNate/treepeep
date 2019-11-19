@@ -10,7 +10,7 @@ import {
 import * as testData from "../data/testData.json";
 import tree0 from '../data/tree0.jpg';
 import CommentForm from "./CommentForm";
-import likeIcon from "../data/open-iconic-master/svg/heart.svg";
+import likeIcon from "../data/open-iconic-master/svg/leaf.svg";
 import commentIcon from "../data/open-iconic-master/svg/comment-square.svg";
 import mapIcon from "../data/open-iconic-master/svg/map-marker.svg"
 
