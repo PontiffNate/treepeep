@@ -35,7 +35,24 @@ export default class TreeController{
         for (var i = 0; i < this.treeData.values.length; i++) {
             fin.push(this.mapTreeArrayToJSON(this.treeData.values[i]));
         }
+        if (filter == "None") {
+            console.log("here");
+            return fin;
+        } else if (filter == "likes") {
+            fin = fin.sort(function(a, b) {
+                return a.LIKES - b.LIKES;
+            })
+            return fin.reverse();
+
+        } else if (filter == "name") {
+            fin = fin.sort(function(a,b) {
+                var x = a.NAME < b.NAME? -1:1;
+                return x;
+            });
+            return fin;
+        }
         return fin;
+        
     }
 
     mapTreeArrayToJSON(arr) {

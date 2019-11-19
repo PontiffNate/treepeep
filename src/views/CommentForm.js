@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import CommentController from "./DatabaseControllers/CommentController";
 
-export default class TreePost extends Component {
+export default class CommentForm extends Component {
     constructor() {
         super();
         this.submit = this.submit.bind(this);
