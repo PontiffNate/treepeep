@@ -48,7 +48,9 @@ To install the yarn package manager, visit the [official yarn site](https://yarn
 
 ## run the executable
 
- Next, to get the app set up and running, the following commands sould be put into the terminal on your computer.
+ Next, to get the app set up and running, the following commands should be put into the terminal on your computer.
+
+ Note: Make sure to run these commands AFTER you cd into the main folder i.e 'PATH/TO/FOLDER/treepeep' or 'PATH/TO/FOLDER/treepeep-master'
 
 **for npm**
 
