@@ -37,13 +37,15 @@ export default class TreePost extends Component {
                 <Card style={{ width: '40rem' }}>
                     {/* <Card.Img variant="top" src={"" + this.props.post.IMAGE_URL} /> */}
                     <Card.Img variant="top" src={this.post.IMAGE_URL} />
-                    <Card.ImgOverlay id ="cardOverlay" >
-                        <Image src={likeIcon} className="iconic" id = "likeIcon" fluid />
-                        <a href="#comments-section"><Image src={commentIcon} className="iconic" id = "commIcon" fluid /></a>
-                        <a href={"/map?id=" + this.post.ID}><Image src={mapIcon} className="iconic" id="mapIcon" fluid /></a>
-                    </Card.ImgOverlay>
                     <Card.Body>
-                    <Card.Title>{this.post.NAME}</Card.Title>
+                    <Card.Title>
+                        {this.post.NAME}
+                        <nobr class="move-icons-right">
+                            <Image src={likeIcon} className="iconic" id = "likeIcon" fluid />
+                            <a href={"/post?id=" + this.post.ID + "#comments-section"}><Image src={commentIcon} className="iconic" id = "commIcon" fluid /></a>
+                            <a href={"/map?id=" + this.post.ID}><Image src={mapIcon} className="iconic" id="mapIcon" fluid /></a>
+                        </nobr>
+                        </Card.Title>
                     <Card.Text>
                         {this.post.DESCRIPTION}
                     </Card.Text>
