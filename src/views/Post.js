@@ -6,11 +6,12 @@ export default class Post extends Component {
         return(
             <div id="container" className="container">
                 <h3>Make a Post</h3>
+                <label>* are required fields</label>
                 <form method="post" name="TreePost">
-                <label>Picture:</label>
-                <input type="file" name="TreePicture"/>
-                <label>Title Of Post:</label>
-                <input name="title" type="text"/>
+                <label>*Picture:</label>
+                <input type="file" name="TreePicture" required/>
+                <label>*Title Of Post:</label>
+                <input name="title" type="text" required/>
                 <label>Discription Of Tree:</label>
                 <textarea rows="4" cols="94"/>
                 <label>Species:</label>
@@ -65,15 +66,18 @@ export default class Post extends Component {
                     <option value="Black Willow">Black Willow</option>
                 </datalist>
                 <br />
-                <label>Hieght of the Tree:</label>
+                <label>Height of the Tree:</label>
                 <input name="Hieght" type="number"/>
                 <select>
                     <option value="feet">Feet</option>
                     <option value="meters">Meters</option>
                 </select>
                 <br />
-                <label>GPS Loacation of Tree:</label>
-                <input name="place" type="text"/>
+                <label>GPS Location of Tree:</label>
+                <label>Longitude</label>
+                <input name="place0" type="text"/>
+                <label>Latitude</label>
+                <input name="place1" type="text"/>
                 <input type="submit" className="button" value="Post Tree"/>
                 </form>
             </div>
