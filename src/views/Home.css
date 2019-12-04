@@ -42,3 +42,7 @@ h1 {
 /* #post {
     padding-bottom: 30px;
 } */
+
+.move-icons-right {
+    float: right;
+}
