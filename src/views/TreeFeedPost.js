@@ -21,12 +21,18 @@ export default class TreeFeedPosts extends React.Component {
                 {/* <Card.Img variant="top" src={"" + this.props.post.IMAGE_URL} /> */}
                 <Card.Img variant="top" src={this.props.post.IMAGE_URL} />
                 <Card.ImgOverlay id ="cardOverlay" >
-                    <Image src={likeIcon} className="iconic" id = "likeIcon" fluid />
-                    <a href={"/post?id=" + this.props.post.ID + "#comments-section"}><Image src={commentIcon} className="iconic" id = "commIcon" fluid /></a>
-                    <a href={"/map?id=" + this.props.post.ID}><Image src={mapIcon} className="iconic" id="mapIcon" fluid /></a>
+                    
                 </Card.ImgOverlay>
                 <Card.Body>
-                <Card.Title>{this.props.post.NAME}</Card.Title>
+                <Card.Title>
+                    {this.props.post.NAME}
+                    <nobr class="move-icons-right">
+                        <Image src={likeIcon} className="iconic" id = "likeIcon" fluid />
+                        <a href={"/post?id=" + this.props.post.ID + "#comments-section"}><Image src={commentIcon} className="iconic" id = "commIcon" fluid /></a>
+                        <a href={"/map?id=" + this.props.post.ID}><Image src={mapIcon} className="iconic" id="mapIcon" fluid /></a>
+                    </nobr>
+                
+                </Card.Title>
                 <Card.Text>
                     {getPaginatedDescription(this.props.post.DESCRIPTION)}
                 </Card.Text>
