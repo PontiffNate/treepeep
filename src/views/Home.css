@@ -21,6 +21,11 @@ h1 {
     stroke: #fe6e32;
 }
 
+.likeIcon-small {
+    height: 20px !important;
+    width: 20px !important;
+}
+
 #commIcon{
     fill: #fe6e32;
     stroke: #fe6e32;

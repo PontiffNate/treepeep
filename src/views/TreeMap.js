@@ -90,6 +90,7 @@ function Map() {
             >
               <div>
                 <h2>{selectedTree.NAME}</h2>
+                <a class="list-group-item" href={"/post?id=" + selectedTree.ID}>View Full Post</a>
                 <img src={""+ selectedTree.IMAGE_URL}/>
               </div>
             </InfoWindow>
