@@ -33,7 +33,7 @@ export default class TreeFeedPosts extends React.Component {
                 </Card.Body>
                 <ListGroup className="list-group-flush">
                 <ListGroupItem>Author: {getAuthorName(this.props.post.AUTHOR_ID)}</ListGroupItem>
-                <ListGroupItem>Likes: {this.props.post.LIKES}</ListGroupItem>
+                <ListGroupItem><Image src={likeIcon} className="iconic likeIcon-small" id = "likeIcon" fluid />Likes: {this.props.post.LIKES}</ListGroupItem>
                 <ListGroupItem><a href={"/post?id=" + this.props.post.ID}>View Full Post</a></ListGroupItem>
                 </ListGroup>
             </Card>

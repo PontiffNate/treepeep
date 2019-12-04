@@ -50,7 +50,7 @@ export default class TreePost extends Component {
                     </Card.Body>
                     <ListGroup className="list-group-flush">
                         <ListGroupItem>Author: {this.author.NAME}</ListGroupItem>
-                        <ListGroupItem>Likes: {this.post.LIKES}</ListGroupItem>
+                        <ListGroupItem><Image src={likeIcon} className="iconic likeIcon-small" id = "likeIcon" fluid />Likes: {this.post.LIKES}</ListGroupItem>
                         <ListGroupItem>Species: {this.post.SPECIES}</ListGroupItem>
                         <ListGroupItem>Height: {this.post.HEIGHT}</ListGroupItem>
                     </ListGroup>
