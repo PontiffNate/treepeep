@@ -5,24 +5,51 @@ import {
     Nav,
     Form,
  } from 'react-bootstrap';
- 
+
 import '../App.css';
 
 export default class FilterForm extends Component {
     constructor(props) {
         super(props)
       this.state = {
-          filter: "none"
+          filter: "newest",
+          button: (<Button variant="danger" onClick={this.handleReset}>Reset</Button>)
       };
-      
+
       this.handleRadio = this.handleRadio.bind(this);
       this.handleFilterSubmission = this.handleFilterSubmission.bind(this);
+      this.handleReset = this.handleReset.bind(this);
+    }
+
+    componentDidMount(){
+        var url = window.location.href;
+
+        var regex = /[?&]([^=#]+)=([^&#]*)/g,
+          params = {},
+          match;
+        while (match = regex.exec(url)) {
+          params[match[1]] = match[2];
+        }
+        console.log(params)
+        this.setState({filter: params.filter})
+        console.log(params.filter);
     }
 
     handleRadio(event){
+        if (this.state.filter !== event.target.id){
+            this.setState({button: (
+                <Button variant="success" onClick={this.handleFilterSubmission}>Apply</Button>
+            )})
+        }
         this.setState({
             filter: event.target.id,
         })
+
+    }
+
+    handleReset(event){
+        event.preventDefault();
+        window.location.href = window.location.origin;
     }
 
     handleFilterSubmission(event){
@@ -46,9 +73,10 @@ export default class FilterForm extends Component {
                 <Nav id = "filter" defaultActiveKey="/" className="flex-column">
                 <Form.Group controlId="formBasicCheckbox">
                    <Form.Label>Sort By:</Form.Label>
+                   <Form.Check type="radio" checked={this.state.filter === "newest"} label="Newest" id = "newest" onChange={this.handleRadio} />
                    <Form.Check type="radio" checked={this.state.filter === "likes"} label="Likes" id = "likes" onChange={this.handleRadio} />
                    <Form.Check type="radio" checked={this.state.filter === "name"} label="Name" id = "name" onChange={this.handleRadio}/>
-                   <Button variant="success" onClick={this.handleFilterSubmission}>Apply</Button>
+                   {this.state.button}
                 </Form.Group>
                 </Nav>
             );
